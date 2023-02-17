@@ -1,6 +1,7 @@
 #include <iostream>
-
+#include "tools.h"
+#include "user.h"
 int main() {
-    std::cout << "Hello, World!" << std::endl;
-    return 0;
+    USER xiaoming;
+    cout << xiaoming.privilege;
 }
