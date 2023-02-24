@@ -2,6 +2,12 @@
 #include "tools.h"
 #include "user.h"
 int main() {
-    USER xiaoming;
-    cout << xiaoming.privilege;
+    user xiaoming;
+    std::cout << xiaoming.privilege;
 }
+//cmake_minimum_required(VERSION 3.24)
+//project()
+//
+//set(CMAKE_CXX_STANDARD 17)
+//
+//add_executable(main.cpp tools.h user.h)

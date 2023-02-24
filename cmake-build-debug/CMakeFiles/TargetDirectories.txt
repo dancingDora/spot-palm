@@ -1,0 +1,3 @@
+/Users/luyifan/CLionProjects/spot-palm/cmake-build-debug/CMakeFiles/spot-palm.dir
+/Users/luyifan/CLionProjects/spot-palm/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/luyifan/CLionProjects/spot-palm/cmake-build-debug/CMakeFiles/rebuild_cache.dir

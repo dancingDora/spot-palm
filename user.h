@@ -5,9 +5,9 @@
 #ifndef 旅游景点模糊推荐_USER_H
 #define 旅游景点模糊推荐_USER_H
 
-#include "char.h"
+#include "tools.h"
 
-class USER{
+class USER {
 private:
     Char<16> password;
 protected:
@@ -16,9 +16,11 @@ public:
     Char<32> userName;
     const int privilege;  //privilege  :  visitor-0 ; user-1  ; contributor-3 ; leader-7.
     int gender;           //gender     :  male-1   ; female-2; others-0.
+    USER(int p) : privilege(p) {};
 
-    virtual USER():password(1),uid(1),userName(1),privilege(1), gender(0){};
-    virtual USER(const USER &usr):uid(usr.uid), privilege(usr.privilege){
+    USER() : password(), uid(), userName(), privilege(), gender(0) {};
+
+    USER(const USER &usr) : uid(usr.uid), privilege(usr.privilege) {
         password = usr.password;
         userName = usr.userName;
         gender = usr.gender;
@@ -26,18 +28,29 @@ public:
 };
 
 class leader : public USER {
-    leader()
+public:
+    leader() : USER(7) {};
 };
 
 class contributor : public USER {
+public:
+    contributor() : USER(3) {
 
+    };
 };
 
 class visitor : public USER {
+public:
+    visitor() : USER(0) {
 
+    };
 };
 
-class user : public USER {
+class user : public USER { ;
+public:
+    user() : USER(1) {
 
+    }
 };
+
 #endif //旅游景点模糊推荐_USER_H
