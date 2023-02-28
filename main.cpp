@@ -1,6 +1,9 @@
 #include <iostream>
 #include "tools.h"
 #include "user.h"
+#include "spot.h"
+#include <stdlib.h>
+#include "status.h"
 int main() {
     user xiaoming;
     std::cout << xiaoming.privilege;
