@@ -1,4 +1,1 @@
-"/Users/luyifan/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/223.7571.171/CLion.app/Contents/bin/cmake/mac/bin/cmake" -DCMAKE_BUILD_TYPE=Debug "-DCMAKE_MAKE_PROGRAM=/Users/luyifan/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/223.7571.171/CLion.app/Contents/bin/ninja/mac/ninja" -G Ninja -S /Users/luyifan/CLionProjects/spot-palm -B /Users/luyifan/CLionProjects/spot-palm/cmake-build-debug
--- Configuring done
--- Generating done
--- Build files have been written to: /Users/luyifan/CLionProjects/spot-palm/cmake-build-debug
+在 /Users/luyifan/CLionProjects/spot-palm 中找不到 CMakeLists.txt 选择 CMakeLists.txt
