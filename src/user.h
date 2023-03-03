@@ -1,7 +1,6 @@
 //
 // Created by 陆逸凡 on 2023/2/17.
 //
-
 #ifndef 旅游景点模糊推荐_USER_H
 #define 旅游景点模糊推荐_USER_H
 
@@ -10,6 +9,7 @@
 #include <iostream>
 using std::cerr;
 using std::string;
+using std::cout;
 class UserManager;
 class USER{
 private:
@@ -78,7 +78,9 @@ class UserManager{
 public:
     std::unordered_map<unsigned, USER> users;
 public:
-    UserManager() {users.clear();};
+    UserManager() {users.clear();}
+    //bool addUser(... user.enum) return true : false
+    ~UserManager() {clear();}
     bool addUser(const std::string &user_name, const int &privilege,
                  const int &gender, const std::string &mail_address,
                  const unsigned &uid, const string &pass_word){
@@ -87,10 +89,17 @@ public:
             users.insert(std::pair<unsigned, USER>(uid, *newMember));
             delete newMember;
         }
-        else cerr << "[UserManager AddUser] Invalid add : add the same uid.\n";
+        else cerr << "[UserManager AddUser] Invalid add : "  << uid << " add the same uid.\n";
         return false;
     }
-
+    //bool addUser(user) return true : false
+    bool addUser(const user &u) {
+        if(users.find(u.uid) == users.end())
+            users.insert(std::pair<unsigned, USER>(u.uid, u));
+        else cerr << "[UserManager AddUser] Invalid add : " << u.uid << " add the same uid.\n";
+        return false;
+    }
+    //bool login(u, p) return true : false
     bool login(const unsigned &u, const string &p) {
         if(loginUser.find(u) != loginUser.cend()) {
             cerr << "[UserManager AddUser] Invalid login : " << u << " has login\n";
@@ -107,13 +116,65 @@ public:
         loginUser.insert(std::pair<unsigned, unsigned>(u, users[u].privilege));
         return true;
     }
-
-    bool logout(const string &u) {
-        return loginUser.erase();
+    //bool logout(u, p) return true : false
+    bool logout(const unsigned &u) {
+        auto it = loginUser.find(u);
+        if(it == loginUser.cend()) {
+            cerr << "[UserManager AddUser] Invalid logout : " << u << " has not login.\n";
+            return false;
+        }
+        if(users.find(u) == users.cend()) {
+            cerr << "[UserManager AddUser] Invalid logout : " << u << " not found.\n";
+            return false;
+        }
+        loginUser.erase(it);
+        return true;
     }
 
+    bool queryProfile(const unsigned &u, const unsigned &q) {
+        if(loginUser.find(u) == loginUser.cend()) {
+            cerr << "[UserManager queryProfile] Invalid queryProfile : " << u << " not login.\n";
+            return false;
+        }
+        if(users.find(u) == users.cend()) {
+            cerr << "[UserManager queryProfile] Invalid queryProfile : " << u << " not exist.\n";
+            return false;
+        }
+        if(users.find(q) == users.cend()) {
+            cerr << "[UserManager queryProfile] Invalid queryProfile : " << q << " not found.\n";
+            return false;
+        }
+        auto iter = users.find(q);
+        cout << "uid : " << q << '\n';
+        cout << "user name : " << iter->second.userName << '\n';
+        cout << "gender : " << iter->second.gender << '\n';
+        cout << "privilege : " << iter->second.privilege << '\n';
+        return 1;
+    }
+    //最后一个参数num思路来源于修改文件权限：777 之类
+    //每一个参数对应某一位数字：gender + 1， mail + 2， name + 4
+    //根据输入的参数种类来确定修改资料种类
+    bool modifyProfile(const unsigned &u, const int &gender, const string &mail,
+                       const string &name, const int &num) {
+        if(loginUser.find(u) == loginUser.cend()) {
+            cerr << "[UserManager modifyProfile] Invalid modifyProfile : " << u << " not login.\n";
+            return false;
+        }
+        if(users.find(u) == users.cend()) {
+            cerr << "[UserManager modifyProfile] Invalid modifyProfile : " << u << " not exist.\n";
+            return false;
+        }
+        if(num & 4) users[u].userName = name;
+        if(num & 2) users[u].mailAddress = mail;
+        if(num & 1) users[u].gender = gender;
+        return true;
+    }
 
+    bool clear() {
+        users.clear();
+        loginUser.clear();
+    }
+    //TODO: extend here
 };
-
 
 #endif //旅游景点模糊推荐_USER_H

@@ -3,7 +3,6 @@
 #include "user.h"
 #include "spot.h"
 #include <stdlib.h>
-#include "status.h"
 using std::cout;
 using std::endl;
 int main() {
