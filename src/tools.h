@@ -38,4 +38,18 @@ public:
 };
 //thank you teacher lin
 
+//需要一个统计区间重叠数量的算法，返回一段区间（pair）或者区间的中点
+template<class T = int>
+class intervalOverlap{
+public:
+    struct lr{
+        T l;
+        T r;
+    };
+
+    std::vector<lr*> e;
+
+
+};
+
 #endif //旅游景点模糊推荐_TOOLS_H

@@ -4,9 +4,15 @@
 #include "spot.h"
 #include <stdlib.h>
 #include "status.h"
+using std::cout;
+using std::endl;
 int main() {
+    UserManager test;
     user xiaoming;
-    std::cout << xiaoming.privilege;
+    std::cout << xiaoming.privilege << std::endl;
+    test.addUser("xiaoming", 1, 1, "sjtu.edu.cn", 123, "123");
+    std::cout << test.users[123].privilege << endl;
+
 }
 //cmake_minimum_required(VERSION 3.24)
 //project()
