@@ -7,6 +7,8 @@
 
 #include <cstring>
 #include <iostream>
+#include <cmath>
+#include "const_value.h"
 
 template<const int size = 64>
 class Char {
@@ -38,6 +40,29 @@ public:
 };
 //thank you teacher lin
 
+
+/*
+ * 已知两点经纬度，计算球面距离（地球半径默认值为 6371.0 ( const_value.h EARTH_RADIUS)
+ *
+ *
+ */
+double toRadians(double degree) {
+    return degree * M_PI / 180.0;
+}
+
+double distance(double lat1, double lon1, double lat2, double lon2) {
+    double dLat = toRadians(lat2 - lat1);
+    double dLon = toRadians(lon2 - lon1);
+    double a = std::sin(dLat / 2) * std::sin(dLat / 2) +
+               std::cos(toRadians(lat1)) * std::cos(toRadians(lat2)) *
+               std::sin(dLon / 2) * std::sin(dLon / 2);
+    double c = 2 * std::atan2(std::sqrt(a), std::sqrt(1 - a));
+    double distance = EARTH_RADIUS * c;
+    return distance;
+}
+
+
+
 //需要一个统计区间重叠数量的算法，返回一段区间（pair）或者区间的中点
 template<class T = int>
 class intervalOverlap{
@@ -51,5 +76,7 @@ public:
 
 
 };
+
+
 
 #endif //旅游景点模糊推荐_TOOLS_H

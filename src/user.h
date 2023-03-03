@@ -151,6 +151,7 @@ public:
         cout << "privilege : " << iter->second.privilege << '\n';
         return 1;
     }
+
     //最后一个参数num思路来源于修改文件权限：777 之类
     //每一个参数对应某一位数字：gender + 1， mail + 2， name + 4
     //根据输入的参数种类来确定修改资料种类
