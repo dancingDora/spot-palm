@@ -156,7 +156,11 @@ public:
     //每一个参数对应某一位数字：gender + 1， mail + 2， name + 4
     //根据输入的参数种类来确定修改资料种类
     bool modifyProfile(const unsigned &u, const int &gender, const string &mail,
-                       const string &name, const int &num) {
+                       const string &name, int num = 0) {
+        if(num >= 8) {
+            cerr << "[UserManager modifyProfile] Invalid test_cond : without Xor.\n";
+            cerr << "Maybe because of without valid uid input. uid : " << u << '\n';
+        }
         if(loginUser.find(u) == loginUser.cend()) {
             cerr << "[UserManager modifyProfile] Invalid modifyProfile : " << u << " not login.\n";
             return false;
@@ -165,15 +169,16 @@ public:
             cerr << "[UserManager modifyProfile] Invalid modifyProfile : " << u << " not exist.\n";
             return false;
         }
-        if(num & 4) users[u].userName = name;
-        if(num & 2) users[u].mailAddress = mail;
-        if(num & 1) users[u].gender = gender;
+        if(num & 0b100l) users[u].userName = name;
+        if(num & 0b10l) users[u].mailAddress = mail;
+        if(num & 0b1l) users[u].gender = gender;
         return true;
     }
 
     bool clear() {
         users.clear();
         loginUser.clear();
+        return true;
     }
     //TODO: extend here
 };
