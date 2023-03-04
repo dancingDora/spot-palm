@@ -318,7 +318,6 @@ public:
         return "clear success!";
     }
     string parseHelp() {
-
         return help() ? "parse help failed" : "\032[31mYou`re welcome.\033[0\n";
     }
     string parseExit() {

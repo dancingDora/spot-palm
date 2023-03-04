@@ -197,19 +197,20 @@ public:
 };
 
 bool help() {
-    cout << "\033[36m   Welcome to spot palm. We will give you good recommend as we can.\033[0m" << std::endl;
-    cout << "\033[36m   And here is the usage of command line version.\033[0m" << std::endl;
+    cout << "\033[36m     ^_^       Welcome to spot palm ~\033[0m" << std::endl << std::endl;
+    cout << "\033[36m We will give you good recommend for spot as we can. And here is the usage of command line version.\033[0m" << std::endl;
     cout << "\033[36m add_user -n <user_name(string)> -v <privilege(int)> -g <gender(int)> -m <mail_address(string)> -i <uid(unsigned)> -p <password(string)>\033[0m" << std::endl;
     cout << "\033[36m login -i <uid(unsigned)> -p <password(string)>\033[0m" << std::endl;
     cout << "\033[36m logout -i <uid(unsigned)>\033[0m" << std::endl;
     cout << "\033[36m query_profile -i <uid(unsigned)> -q <queryUID(unsigned)>\033[0m" << std::endl;
     cout << "\033[36m modify_profile -i <uid(unsigned)> (-g) <gender(int)> (-m) <mail_address(string)> (-n_ <name(string)>\033[0m" << std::endl;
-    cout << "\033[33m add_spot -n [spot name] -i [sid] -t [status temperature] -v [status visitorAmount]\033[0m" << std::endl;
+    cout << "\033[36m add_spot -n [spot name] -i [sid] -t [status temperature] -v [status visitorAmount]\033[0m" << std::endl;
     cout << "\033[33m          -h [status humidity] -c [status consumption] -d [status distance]\033[0m" << std::endl;
     cout << "\033[33m          -p [province] -s [city] -ns [NS] -we [WE]\033[0m" << std::endl;
-    cout << "\033[33m --help\033[0m" << std::endl;
-    cout << "\033[33m clear\033[0m" << std::endl;
-    cout << "\033[30m The sequence of parameter is free.\nEnjoy the spot-palm.\033[0m" << std::endl;
+    cout << "\033[33m --help   (give you the usage method, just repeat such output) \033[0m" << std::endl;
+    cout << "\033[33m clear pw (clear all the data, only input the password of root can be done.)\033[0m" << std::endl;
+    cout << "\033[30m The sequence of parameter is free.\033[0m\n";
+    cout << "\033[30m Enjoy the spot-palm now!\033[0m" << std::endl;
 }
 
 /*需要一个统计区间重叠数量的算法，返回一段区间（pair）或者区间的中点
