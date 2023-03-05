@@ -88,6 +88,7 @@ public:
             USER *newMember = new USER(uid, privilege, gender, user_name, mail_address, pass_word);
             users.insert(std::pair<unsigned, USER>(uid, *newMember));
             delete newMember;
+            return true;
         }
         else cerr << "[UserManager AddUser] Invalid add : "  << uid << " add the same uid.\n";
         return false;
@@ -145,11 +146,12 @@ public:
             return false;
         }
         auto iter = users.find(q);
-        cout << "uid : " << q << '\n';
-        cout << "user name : " << iter->second.userName << '\n';
-        cout << "gender : " << iter->second.gender << '\n';
-        cout << "privilege : " << iter->second.privilege << '\n';
-        return 1;
+        cout << "uid :          " << q << '\n';
+        cout << "user name :    " << iter->second.userName << '\n';
+        cout << "mail address : " << iter->second.mailAddress << '\n';
+        cout << "gender :       " << iter->second.gender << '\n';
+        cout << "privilege :    " << iter->second.privilege << '\n';
+        return true;
     }
 
     //最后一个参数num思路来源于修改文件权限：777 之类

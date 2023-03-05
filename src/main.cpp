@@ -1,17 +1,29 @@
 #include <iostream>
+#include <fstream>
 #include "tools.h"
 #include "user.h"
 #include "spot.h"
+#include "command_parser.h"
 #include <stdlib.h>
+using std::cin;
 using std::cout;
 using std::endl;
+using std::ifstream;
+using std::ofstream;
+CommandParser spot_palm;
 int main() {
-    UserManager test;
-    user xiaoming;
-    std::cout << xiaoming.privilege << std::endl;
-    test.addUser("xiaoming", 1, 1, "sjtu.edu.cn", 123, "123");
-    std::cout << test.users[123].privilege << endl;
-
+    string commandLine, result;
+    while(std::getline(cin , commandLine)) {
+        result = spot_palm.run(commandLine);
+        if(result.length()) {
+            if(result == "bye") {
+                cout << "\033[36mbye bye ~\033[0m\n";
+                break;
+            }
+            cout << result;
+        }
+    }
+    return 0;
 }
 //cmake_minimum_required(VERSION 3.24)
 //project()

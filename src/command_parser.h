@@ -39,7 +39,7 @@ public:
         else {
             cerr << "[CommandParser run] Invalid key, command not found.\n";
             cout << "If you don`t know how to use spot-palm for command line,\n";
-            cout << "You can try to input ` help `.\n";
+            cout << "You can try to input `--help`.\n";
             return "";
         }
     }
@@ -95,7 +95,7 @@ public:
             }
         };
         return users.addUser(n, v, g, m, i, p)
-               ? "AddUser parse failed.\n" : "1";
+               ? "\033[36mAdd user success.\033[0m\n" : "AddUser failed.\n";
     };
 
     //    bool login(const unsigned &u, const string &p)
@@ -125,7 +125,7 @@ public:
             }
         };
         return users.login(i, p)
-               ? "Login parse failed.\n" : "1";
+               ?  "\033[33mLogin success.\033[0m\n" : "Login failed.\n";
     }
 
     //    bool logout(const unsigned &u)
@@ -147,7 +147,7 @@ public:
             }
         }
         return users.logout(i)
-               ? "Logout parse failed.\n" : "1";
+               ? "\033[36mLogout success.\033[0m\n" : "Logout failed.\n";
     }
 
     //    bool queryProfile(const unsigned &u, const unsigned &q)
@@ -162,14 +162,17 @@ public:
             if(key == "-i") {
                 i = stoi(token.NextToken());
                 test_cond |= 0b1l;
+                //cout << "-i read success : " << i << std::endl; //output debug
             }
             else if(key == "-q") {
                 q = stoi(token.NextToken());
                 test_cond |= 0b10l;
+                //cout << "-q read success : " << q << std::endl;//output debug
             }
             else {
                 cerr << "[CommandParser parseQueryProfile] wrong input / not such command.\n";
             }
+            key = token.NextToken();
         }
         {// test the parameter is completed
             if (test_cond != 0b11l) {
@@ -177,7 +180,7 @@ public:
                 return "[CommandParser parseQueryProfile] the parameter is not completed.\n";
             }
         }
-        return users.queryProfile(i, q) ? "QueryProfile parse failed.\n" : "1";
+        return users.queryProfile(i, q) ? "\033[36mQuery profile success.\033[0m\n" : "QueryProfile failed.\n";
     }
 
     //bool modifyProfile(const unsigned &u, const int &gender, const string &mail,
@@ -214,6 +217,7 @@ public:
             else {
                 cerr << "[CommandParser parseModifyProfile] wrong input / not such command.\n";
             }
+            key = token.NextToken();
         }
         {//judge is uid input
             test_cond ^= 0b1000l;
@@ -223,7 +227,7 @@ public:
             }
         }
         return users.modifyProfile(i,g,m,n,test_cond)
-        ? "Modify Profile parse failed" : "1";
+        ? "\033[33mModify Profile success.\033[0m\n" : "Modify Profile failed.\n";
 
     }
     //bool addSpot(const string &spotNameA, const int &sidA,
@@ -306,19 +310,19 @@ public:
             }
         }
         return spots.addSpot(n,i,t,v,h,c,d,p,s,ns,we)
-        ? "AddSpot parse failed" : "1";
+        ? "\033[33mAdd Spot success.\033[0m\n" : "AddSpot parse failed.\n";
     }
     string parseClear(TokenScanner &token) {
         string key = token.NextToken();
         if(key != "dsqcxtwjhlyf") {
-            return "clear failed.";
+            return "clear failed.\n";
         }
         users.clear();
         spots.clear();
-        return "clear success!";
+        return "clear success!\n";
     }
     string parseHelp() {
-        return help() ? "parse help failed" : "\032[31mYou`re welcome.\033[0\n";
+        return help() ? "parse help failed" : "\033[36mYou`re welcome.\033[0m\n";
     }
     string parseExit() {
         return "bye";
