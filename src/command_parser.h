@@ -26,7 +26,7 @@ public:
             cerr << "[CommandParser run] Invalid input, key.length() = 0.\n";
             return "";
         }
-        if (key == "exit") return parseExit();
+        if (key == "exit" || key == "q") return parseExit();
         //clear : please input root password
         else if(key == "clear") return parseClear(token);
         else if (key == "add_user") return parseAddUser(token);
