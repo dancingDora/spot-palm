@@ -34,6 +34,8 @@ public:
         else if (key == "logout") return parseLogout(token);
         else if (key == "query_profile") return parseQueryProfile(token);
         else if (key == "modify_profile") return parseModifyProfile(token);
+        else if (key == "modify_graph") return parseModifyGraph(token);
+        else if (key == "recommend_graph") return parseRecommendGraph(token);
         else if (key == "add_spot") return parseAddSpot(token);
         else if (key == "--help") return parseHelp();
         else {
@@ -89,7 +91,7 @@ public:
             key = token.NextToken();
         }
         {// test the parameter is completed
-            if ((test_cond & 0b111111l) != test_cond) {
+            if (test_cond != 0b111111l) {
                 cerr << "[CommandParser parseAddUser] the parameter is not completed.\n";
                 return "[CommandParser parseAddUser] the parameter is not completed.\n";
             }
@@ -310,7 +312,7 @@ public:
             }
         }
         return spots.addSpot(n,i,t,v,h,c,d,p,s,ns,we)
-        ? "\033[33mAdd Spot success.\033[0m\n" : "AddSpot parse failed.\n";
+        ? "\033[33mAdd Spot success.\033[0m\n" : "Add Spot failed.\n";
     }
     string parseClear(TokenScanner &token) {
         string key = token.NextToken();
@@ -321,6 +323,184 @@ public:
         spots.clear();
         return "clear success!\n";
     }
+    string parseModifyGraph(TokenScanner &token) {
+        string key = token.NextToken();
+        unsigned hobbies_cond = 0;
+        unsigned i = 0;
+        while(!key.empty()) {
+
+            if(key == "-ls" || key == "ls") {
+                cout << "swim\t";
+                cout << "run\t";
+                cout << "cycle\t";
+                cout << "basketball\t";
+                cout << "football\t";
+                cout << "tennis\n";
+                cout << "table_tennis\t";
+                cout << "box\t";
+                cout << "shoot\t";
+                cout << "volleyball\t";
+                cout << "baseball\t";
+                cout << "gymnastic\n";
+                cout << "sky\t";
+                cout << "ice_skating\t";
+                cout << "marathon\t";
+                cout << "row\t";
+                cout << "surf\n\n";
+                cout << "classical\t";
+                cout << "jazz_blues\t";
+                cout << "folk\t";
+                cout << "pop\t";
+                cout << "rock\t";
+                cout << "dance\n";
+                cout << "rap\t";
+                cout << "electronic\n";
+            }
+            else if(key == "-u")
+                i = stoi(token.NextToken());
+            else if(key == "-swim") {
+                key = token.NextToken();
+                if(key == "1")
+                    hobbies_cond |= 0x0000001l;
+            }
+            else if(key == "-run") {
+                key = token.NextToken();
+                if(key == "1")
+                    hobbies_cond |= 0x0000002l;
+            }
+            else if(key == "-cycle") {
+                key = token.NextToken();
+                if(key == "1")
+                    hobbies_cond |= 0x0000004l;
+            }
+            else if(key == "-basketball") {
+                key = token.NextToken();
+                if(key == "1")
+                    hobbies_cond |= 0x0000008l;
+            }
+            else if(key == "-football") {
+                key = token.NextToken();
+                if(key == "1")
+                    hobbies_cond |= 0x0000010l;
+            }
+            else if(key == "-tennis") {
+                key = token.NextToken();
+                if(key == "1")
+                    hobbies_cond |= 0x0000020l;
+            }
+            else if(key == "-table_tennis") {
+                key = token.NextToken();
+                if(key == "1")
+                    hobbies_cond |= 0x0000040l;
+            }
+            else if(key == "-box") {
+                key = token.NextToken();
+                if(key == "1")
+                    hobbies_cond |= 0x0000080l;
+            }
+            else if(key == "-shoot") {
+                key = token.NextToken();
+                if(key == "1")
+                    hobbies_cond |= 0x0000100l;
+            }
+            else if(key == "-volleyball") {
+                key = token.NextToken();
+                if(key == "1")
+                    hobbies_cond |= 0x0000200l;
+            }
+            else if(key == "-baseball") {
+                key = token.NextToken();
+                if(key == "1")
+                    hobbies_cond |= 0x0000400l;
+            }
+            else if(key == "-gymnastic") {
+                key = token.NextToken();
+                if(key == "1")
+                    hobbies_cond |= 0x0000800l;
+            }
+            else if(key == "-sky") {
+                key = token.NextToken();
+                if(key == "1")
+                    hobbies_cond |= 0x0001000l;
+            }
+            else if(key == "-ice_skating") {
+                key = token.NextToken();
+                if(key == "1")
+                    hobbies_cond |= 0x0002000l;
+            }
+            else if(key == "-marathon") {
+                key = token.NextToken();
+                if(key == "1")
+                    hobbies_cond |= 0x0004000l;
+            }
+            else if(key == "-row") {
+                key = token.NextToken();
+                if(key == "1")
+                    hobbies_cond |= 0x0008000l;
+            }
+            else if(key == "-surf") {
+                key = token.NextToken();
+                if(key == "1")
+                    hobbies_cond |= 0x0010000l;
+            }
+            else if(key == "-classical") {
+                key = token.NextToken();
+                if(key == "1")
+                    hobbies_cond |= 0x0020000l;
+            }
+            else if(key == "-jazz_blues") {
+                key = token.NextToken();
+                if(key == "1")
+                    hobbies_cond |= 0x0040000l;
+            }
+            else if(key == "-folk") {
+                key = token.NextToken();
+                if(key == "1")
+                    hobbies_cond |= 0x0080000l;
+            }
+            else if(key == "-pop") {
+                key = token.NextToken();
+                if(key == "1")
+                    hobbies_cond |= 0x0100000l;
+            }
+            else if(key == "-rock") {
+                key = token.NextToken();
+                if(key == "1")
+                    hobbies_cond |= 0x0200000l;
+            }
+            else if(key == "-dance") {
+                key = token.NextToken();
+                if(key == "1")
+                    hobbies_cond |= 0x0400000l;
+            }
+            else if(key == "-rap") {
+                key = token.NextToken();
+                if(key == "1")
+                    hobbies_cond |= 0x0800000l;
+            }
+            else if(key == "-electronic") {
+                key = token.NextToken();
+                if(key == "1")
+                    hobbies_cond |= 0x1000000l;
+            }
+            key = token.NextToken();
+        }
+        return users.modifyGraph(i, hobbies_cond)
+        ?"\033[33mModify Graph success.\033[0m\n" : "Modify Graph failed.\n";
+
+    }
+    string parseRecommendGraph(TokenScanner &token) {
+        string key = token.NextToken();
+        unsigned i;
+        bool quit;
+        while(!key.empty()) {
+            if(key == "-u") i = stoi(token.NextToken());
+            else
+                cerr << "[CommandParser parseRecommendGraph] wrong input / not such command.\n";
+        }
+        return users.recommendGraph(i)
+        ?"\033[33mRecommend Graph success.\033[0m\n" : "Recommend Graph failed.\n";
+    }
     string parseHelp() {
         return help() ? "parse help failed" : "\033[36mYou`re welcome.\033[0m\n";
     }
@@ -328,5 +508,4 @@ public:
         return "bye";
     }
 };
-
 #endif //SPOT_PALM_COMMAND_PARSER_H

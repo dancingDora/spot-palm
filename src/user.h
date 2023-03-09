@@ -7,10 +7,21 @@
 #include "tools.h"
 #include <unordered_map>
 #include <iostream>
+#include <vector>
+#include <cmath>
+
 using std::cerr;
 using std::string;
 using std::cout;
+using std::vector;
+using std::ostream;
+
 class UserManager;
+class character{
+public:
+    ZODIAC_SIGNS starSeat;
+    HOBBIES hobbies;
+};
 class USER{
 private:
     Char<16> password;
@@ -20,14 +31,23 @@ public:
     const unsigned uid;
     const int privilege;  //privilege  :  visitor-0 ; user-1  ; contributor-3 ; leader-7.
     int gender;           //gender     :  male-1   ; female-2; others-0.
-    USER(int p) : privilege(p), uid(0) {};
+    character ch;
+    vector<unsigned> friendList;
+    bool sos;
+    //tmp list
+    vector<unsigned> recommendUIDList_G; // recommend according to user Graph;
+    vector<unsigned> recommendUIDList_S; // recommend according to user Spot browse history;
 
-    USER() : password(), uid(0), userName(), privilege(), gender(0) {};
+
+    USER() : password(), uid(0), userName(), privilege(), gender(0) {
+        sos = false;
+    };
 
     USER(const USER &usr) : uid(usr.uid), privilege(usr.privilege) {
         password = usr.password;
         userName = usr.userName;
         gender = usr.gender;
+        sos = usr.sos;
     }
 
     USER(const unsigned &uid, const int &privilege, const int &gender,
@@ -37,40 +57,28 @@ public:
         this->userName = userName;
         this->mailAddress = mailAddress;
         this->password = password;
+        sos = false;
     }
     //获得该用户密码(private),仅限登陆(function : UserManager login(u, p))期间使用
     string getPassWord() const {
         return this->password;
     }
 
-    friend bool operator == (const USER &l, const USER &r) {
-        return l.userName == r.userName && l.uid == r.uid;
+    friend bool operator == (const USER &l, const USER &r) {return l.userName == r.userName && l.uid == r.uid;}
+    friend bool operator < (const USER &l, const USER &r) {return l.uid < r.uid;}
+    friend bool operator > (const USER &l, const USER &r) {return l.uid > r.uid;}
+    friend bool operator <= (const USER &l, const USER &r) {return l.uid <= r.uid;}
+    friend bool operator >= (const USER &l, const USER &r) {return l.uid >= r.uid;}
+    friend bool operator != (const USER &l, const USER &r) {return l.uid != r.uid;}
+
+    friend ostream &operator << (ostream &uout, const USER &u) {
+        uout << "uid :          " << u.uid << '\n';
+        uout << "user name :    " << u.userName << '\n';
+        uout << "mail address : " << u.mailAddress << '\n';
+        uout << "gender :       " << u.gender << '\n';
+        uout << "privilege :    " << u.privilege << '\n';
+        return uout;
     }
-
-    friend bool operator < (const USER &l, const USER &r) {
-        return l.uid < r.uid;
-    }
-
-};
-
-class leader : public USER {
-public:
-    leader() : USER(7) {};
-};
-
-class contributor : public USER {
-public:
-    contributor() : USER(3) {};
-};
-
-class visitor : public USER {
-public:
-    visitor() : USER(0) {};
-};
-
-class user : public USER {
-public:
-    user() : USER(1) {};
 };
 
 std::unordered_map<unsigned, int> loginUser;
@@ -94,7 +102,7 @@ public:
         return false;
     }
     //bool addUser(user) return true : false
-    bool addUser(const user &u) {
+    bool addUser(const USER &u) {
         if(users.find(u.uid) == users.end())
             users.insert(std::pair<unsigned, USER>(u.uid, u));
         else cerr << "[UserManager AddUser] Invalid add : " << u.uid << " add the same uid.\n";
@@ -146,6 +154,11 @@ public:
             return false;
         }
         auto iter = users.find(q);
+        auto iterPrvl = users.find(u);
+        if(iterPrvl->second.privilege <= iter->second.privilege) {
+            cerr << "[UserManager queryProfile] You do not have enough privileges to find user : " << iter->second.uid << '\n';
+            return false;
+        }
         cout << "uid :          " << q << '\n';
         cout << "user name :    " << iter->second.userName << '\n';
         cout << "mail address : " << iter->second.mailAddress << '\n';
@@ -183,6 +196,90 @@ public:
         return true;
     }
     //TODO: extend here
+
+    bool modifyGraph(const unsigned &u,
+                     const unsigned modify_cond) {
+        if(loginUser.find(u) == loginUser.cend()) {
+            cerr << "[UserManager modifyGraph] Invalid modifyGraph : " << u << " not login.\n";
+            return false;
+        }
+        if(users.find(u) == users.cend()) {
+            cerr << "[UserManager modifyGraph] Invalid modifyGraph : " << u << " not exist.\n";
+            return false;
+        }
+        //if(MODIFY) : this->users[u].ch.hobbies.xxx = xxx
+        if((modify_cond & 0x0000001l) == 0x0000001l)this->users[u].ch.hobbies.swim = true;
+        if((modify_cond & 0x0000002l) == 0x0000002l)this->users[u].ch.hobbies.run = true;
+        if((modify_cond & 0x0000004l) == 0x0000004l)this->users[u].ch.hobbies.cycle = true;
+        if((modify_cond & 0x0000008l) == 0x0000008l)this->users[u].ch.hobbies.basketball = true;
+        if((modify_cond & 0x0000010l) == 0x0000010l)this->users[u].ch.hobbies.football = true;
+        if((modify_cond & 0x0000020l) == 0x0000020l)this->users[u].ch.hobbies.tennis = true;
+        if((modify_cond & 0x0000040l) == 0x0000040l)this->users[u].ch.hobbies.table_tennis = true;
+        if((modify_cond & 0x0000080l) == 0x0000080l)this->users[u].ch.hobbies.box = true;
+        if((modify_cond & 0x0000100l) == 0x0000100l)this->users[u].ch.hobbies.shoot = true;
+        if((modify_cond & 0x0000200l) == 0x0000200l)this->users[u].ch.hobbies.volleyball = true;
+        if((modify_cond & 0x0000400l) == 0x0000400l)this->users[u].ch.hobbies.baseball = true;
+        if((modify_cond & 0x0000800l) == 0x0000800l)this->users[u].ch.hobbies.gymnastic = true;
+        if((modify_cond & 0x0001000l) == 0x0001000l)this->users[u].ch.hobbies.sky = true;
+        if((modify_cond & 0x0002000l) == 0x0002000l)this->users[u].ch.hobbies.ice_skating = true;
+        if((modify_cond & 0x0004000l) == 0x0004000l)this->users[u].ch.hobbies.marathon = true;
+        if((modify_cond & 0x0008000l) == 0x0008000l)this->users[u].ch.hobbies.row = true;
+        if((modify_cond & 0x0010000l) == 0x0010000l)this->users[u].ch.hobbies.surf = true;
+        if((modify_cond & 0x0020000l) == 0x0020000l)this->users[u].ch.hobbies.classical = true;
+        if((modify_cond & 0x0040000l) == 0x0040000l)this->users[u].ch.hobbies.jazz_blues = true;
+        if((modify_cond & 0x0080000l) == 0x0080000l)this->users[u].ch.hobbies.folk = true;
+        if((modify_cond & 0x0100000l) == 0x0100000l)this->users[u].ch.hobbies.pop = true;
+        if((modify_cond & 0x0200000l) == 0x0200000l)this->users[u].ch.hobbies.rock = true;
+        if((modify_cond & 0x0400000l) == 0x0400000l)this->users[u].ch.hobbies.dance = true;
+        if((modify_cond & 0x0800000l) == 0x0800000l)this->users[u].ch.hobbies.rap = true;
+        if((modify_cond & 0x1000000l) == 0x1000000l)this->users[u].ch.hobbies.electronic = true;
+        return true;
+    };
+
+    bool recommendGraph(const unsigned &u) {
+        //initialize
+        std::vector<unsigned> maxList;
+        maxList.clear();
+        this->users[u].recommendUIDList_G.clear();
+        //error handle
+        if(loginUser.find(u) == loginUser.cend()) {
+            cerr << "[UserManager recommendGraph] Invalid recommendGraph : " << u << " not login.\n";
+            return false;
+        }
+        if(users.find(u) == users.cend()) {
+            cerr << "[UserManager recommendGraph] Invalid recommendGraph : " << u << " not exist.\n";
+            return false;
+        }
+        //algorithm : initialize tmp
+        unsigned Max = 0;
+        std::unordered_map<unsigned, std::vector<unsigned> > recommendList;
+        recommendList.clear();
+        //algorithm : calculate recommendList
+        for(auto it : users) {
+            Max = std::max(Max, it.second.ch.hobbies.getDifference(users[u].ch.hobbies));
+            recommendList[it.second.ch.hobbies.getDifference(users[u].ch.hobbies)].push_back(it.second.uid);
+        }
+        for(int i = Max; i >= 0; i++) {
+            if(recommendList[i].empty()) continue;
+            auto it = maxList.begin() + recommendList[i].size();
+            maxList.insert(it, recommendList[i].begin(), recommendList[i].end());
+        }
+        this->users[u].recommendUIDList_G.swap(maxList);
+        return true;
+    }
+
+    void checkRecommend (const unsigned &u) {
+        if(users.find(u) == users.cend()) {
+            cerr << u << " not found.\n";
+            return;
+        }
+        for(auto it : users[u].recommendUIDList_G)
+            cout << users[it] << std::endl;
+        cout << "Recommend success : End of check RecommendUIDList_G.\n";
+        return;
+    }
+
+
 };
 
 #endif //旅游景点模糊推荐_USER_H

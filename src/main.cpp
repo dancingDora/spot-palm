@@ -12,6 +12,7 @@ using std::ifstream;
 using std::ofstream;
 CommandParser spot_palm;
 int main() {
+
     string commandLine, result;
     while(std::getline(cin , commandLine)) {
         result = spot_palm.run(commandLine);
