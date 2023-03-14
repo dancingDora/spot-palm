@@ -212,7 +212,7 @@ int main() {
     for(int i = 1; i <= 170; i++) {
         fout << "query_graph -i " << i << " -q " << i << endl;
     }
-//    for(int i = 1; i <= 170; i++) {
-//        fout << "recommend_graph -i " << i << endl;
-//    }
+    for(int i = 1; i <= 170; i++) {
+        fout << "recommend_graph -i " << i << endl;
+    }
 }

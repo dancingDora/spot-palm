@@ -292,31 +292,24 @@ public:
             cerr << "[UserManager recommendGraph] Invalid recommendGraph : " << u << " not exist.\n";
             return false;
         }
-        cout << "find.\n";//debug
         //initialize
         std::vector<unsigned> maxList;
         maxList.clear();
         this->users[u].recommendUIDList_G.clear();
-        cout << "init.\n";
         //algorithm : initialize tmp
         unsigned Max = 0;
         std::unordered_map<unsigned, std::vector<unsigned> > recommendList;
         recommendList.clear();
-        cout << "init.\n";
         //algorithm : calculate recommendList
         int cnt = 0;
         for(auto it : users) {
-            cout << "for." << (cnt++) << '\n';
-            Max = std::max(Max, it.second.ch.hobbies.getDifference(users[u].ch.hobbies));
-            cout << Max << '\n';
-            recommendList[it.second.ch.hobbies.getDifference(users[u].ch.hobbies)].push_back(it.second.uid);
+            Max = std::max(Max, users[u].ch.hobbies.getDifference(users[it.first].ch.hobbies));
+            recommendList[users[u].ch.hobbies.getDifference(users[it.first].ch.hobbies)].push_back(it.second.uid);
         }
-        for(int i = Max; i >= 0; i++) {
+        for(int i = Max; i > 0; i--) {
             if(recommendList[i].empty()) continue;
-            auto it = maxList.begin() + recommendList[i].size();
-            maxList.insert(it, recommendList[i].begin(), recommendList[i].end());
+            this->users[u].recommendUIDList_G.insert(this->users[u].recommendUIDList_G.end(), recommendList[i].begin(), recommendList[i].end());
         }
-        this->users[u].recommendUIDList_G.swap(maxList);
         return true;
     }
 

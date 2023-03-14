@@ -4,6 +4,8 @@
 
 #ifndef SPOT_PALM_CONST_VALUE_H
 #define SPOT_PALM_CONST_VALUE_H
+#include <iostream>
+using std::cout;
 const double EARTH_RADIUS = 6371.0;
 enum PROVINCE {//省级行政区 34
     Beijing,Tianjin,Shanghai,Chongqing, // 直辖市 4
@@ -60,8 +62,11 @@ public:
     bool electronic;
     unsigned same;
 
-    unsigned getDifference(HOBBIES h) {
+    unsigned getDifference(const HOBBIES &h) {
         same = 0;
+//        cout << "h    :\n" << h << '\n';
+//        cout << "this :\n" << *this << '\n';
+
         //sports
         if(swim && h.swim) same++;
         if(run && h.run)same++;
@@ -122,6 +127,36 @@ public:
         electronic = false;
 
         same = 0;
+    }
+    friend std::ostream &operator << (std::ostream &hout, const HOBBIES &h) {
+        hout << "Sports Part : ";
+        if(h.swim) hout << "swim\t";
+        if(h.run) hout << "run\t";
+        if(h.cycle) hout << "cycle\t";
+        if(h.basketball) hout << "basketball\t";
+        if(h.football) hout << "football\t";
+        if(h.tennis) hout << "tennis\t";
+        if(h.table_tennis) hout << "table_tennis\t";
+        if(h.box) hout << "box\t";
+        if(h.shoot) hout << "shoot\t";
+        if(h.volleyball) hout << "volleyball\t";
+        if(h.baseball) hout << "baseball\t";
+        if(h.gymnastic) hout << "gymnastic\t";
+        if(h.sky) hout << "sky\t";
+        if(h.ice_skating) hout << "ice_skating\t";
+        if(h.marathon) hout << "marathon\t";
+        if(h.row) hout << "row\t";
+        if(h.surf) hout << "surf\n";
+        hout << "Music Part : ";
+        if(h.classical) hout << "classical\t";
+        if(h.jazz_blues) hout << "jazz_blues\t";
+        if(h.folk) hout << "folk\t";
+        if(h.pop) hout << "pop\t";
+        if(h.rock) hout << "rock\t";
+        if(h.dance) hout << "dance\t";
+        if(h.rap) hout << "rap\t";
+        if(h.electronic) hout << "electronic\t";
+        return hout;
     }
 };
 
