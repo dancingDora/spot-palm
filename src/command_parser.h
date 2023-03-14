@@ -36,6 +36,7 @@ public:
         else if (key == "modify_profile") return parseModifyProfile(token);
         else if (key == "modify_graph") return parseModifyGraph(token);
         else if (key == "recommend_graph") return parseRecommendGraph(token);
+        else if (key == "query_graph") return parseQueryGraph(token);
         else if (key == "add_spot") return parseAddSpot(token);
         else if (key == "--help") return parseHelp();
         else {
@@ -491,14 +492,28 @@ public:
     string parseRecommendGraph(TokenScanner &token) {
         string key = token.NextToken();
         unsigned i;
-        bool quit;
         while(!key.empty()) {
             if(key == "-i") i = stoi(token.NextToken());
             else
                 cerr << "[CommandParser parseRecommendGraph] wrong input / not such command.\n";
+            key = token.NextToken();
         }
+
         return users.recommendGraph(i)
-        ?"\033[33mRecommend Graph success.\033[0m\n" : "Recommend Graph failed.\n";
+               ?"\033[33mRecommend Graph success.\033[0m\n" : "Recommend Graph failed.\n";
+    }
+    string parseQueryGraph(TokenScanner &token) {
+        string key = token.NextToken();
+        unsigned i;
+        unsigned q;
+        while(!key.empty()) {
+            if(key == "-i") i = stoi(token.NextToken());
+            else if(key == "-q") q = stoi(token.NextToken());
+            else cerr << "[CommandParser parseQueryGraph] wrong input / not such command.\n";
+            key = token.NextToken();
+        }
+        return users.queryGraph(i, q)
+               ?"\033[33mQuery Graph success.\033[0m\n" : "Query Graph failed.\n";
     }
     string parseHelp() {
         return help() ? "parse help failed" : "\033[36mYou`re welcome.\033[0m\n";

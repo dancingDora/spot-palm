@@ -236,11 +236,53 @@ public:
         return true;
     };
 
+    bool queryGraph(unsigned &u, unsigned &q) {
+        if(loginUser.find(u) == loginUser.cend()) {
+            cerr << "[UserManager queryGraph] Invalid queryGraph : " << u << " not login.\n";
+            return false;
+        }
+        if(users.find(u) == users.cend()) {
+            cerr << "[UserManager queryGraph] Invalid queryGraph : " << u << " not exist.\n";
+            return false;
+        }
+        if(users.find(q) == users.cend()) {
+            cerr << "[UserManager queryGraph] Invalid queryGraph : " << q << " not found.\n";
+            return false;
+        }
+
+        {//输出表
+        if(this->users[q].ch.hobbies.swim)cout << "swim\t";
+        if(this->users[q].ch.hobbies.run)cout << "run\t";
+        if(this->users[q].ch.hobbies.cycle)cout << "cycle\t";
+        if(this->users[q].ch.hobbies.basketball)cout << "basketball\t";
+        if(this->users[q].ch.hobbies.football)cout << "football\t";
+        if(this->users[q].ch.hobbies.tennis)cout << "tennis\t";
+        if(this->users[q].ch.hobbies.table_tennis)cout << "table_tennis\t";
+        if(this->users[q].ch.hobbies.box)cout << "box\t";
+        if(this->users[q].ch.hobbies.shoot)cout << "shoot\t";
+        if(this->users[q].ch.hobbies.volleyball)cout << "volleyball\t";
+        if(this->users[q].ch.hobbies.baseball)cout << "baseball\t";
+        if(this->users[q].ch.hobbies.gymnastic)cout << "gymnastic\t";
+        if(this->users[q].ch.hobbies.sky)cout << "sky\t";
+        if(this->users[q].ch.hobbies.ice_skating)cout << "ice_skating\t";
+        if(this->users[q].ch.hobbies.marathon)cout << "marathon\t";
+        if(this->users[q].ch.hobbies.row)cout << "row\t";
+        if(this->users[q].ch.hobbies.surf)cout << "surf";
+        cout << '\n';
+        if(this->users[q].ch.hobbies.classical)cout << "classical\t";
+        if(this->users[q].ch.hobbies.jazz_blues)cout << "jazz_blues\t";
+        if(this->users[q].ch.hobbies.folk)cout << "folk\t";
+        if(this->users[q].ch.hobbies.pop)cout << "pop\t";
+        if(this->users[q].ch.hobbies.rock)cout << "rock\t";
+        if(this->users[q].ch.hobbies.dance)cout << "dance\t";
+        if(this->users[q].ch.hobbies.rap)cout << "rap\t";
+        if(this->users[q].ch.hobbies.electronic)cout << "electronic";
+        cout << '\n';
+        }
+        return true;
+    }
+
     bool recommendGraph(const unsigned &u) {
-        //initialize
-        std::vector<unsigned> maxList;
-        maxList.clear();
-        this->users[u].recommendUIDList_G.clear();
         //error handle
         if(loginUser.find(u) == loginUser.cend()) {
             cerr << "[UserManager recommendGraph] Invalid recommendGraph : " << u << " not login.\n";
@@ -250,13 +292,23 @@ public:
             cerr << "[UserManager recommendGraph] Invalid recommendGraph : " << u << " not exist.\n";
             return false;
         }
+        cout << "find.\n";//debug
+        //initialize
+        std::vector<unsigned> maxList;
+        maxList.clear();
+        this->users[u].recommendUIDList_G.clear();
+        cout << "init.\n";
         //algorithm : initialize tmp
         unsigned Max = 0;
         std::unordered_map<unsigned, std::vector<unsigned> > recommendList;
         recommendList.clear();
+        cout << "init.\n";
         //algorithm : calculate recommendList
+        int cnt = 0;
         for(auto it : users) {
+            cout << "for." << (cnt++) << '\n';
             Max = std::max(Max, it.second.ch.hobbies.getDifference(users[u].ch.hobbies));
+            cout << Max << '\n';
             recommendList[it.second.ch.hobbies.getDifference(users[u].ch.hobbies)].push_back(it.second.uid);
         }
         for(int i = Max; i >= 0; i++) {

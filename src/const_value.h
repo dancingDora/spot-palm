@@ -64,31 +64,31 @@ public:
         same = 0;
         //sports
         if(swim && h.swim) same++;
-        else if(run && h.run)same++;
-        else if(cycle && h.cycle) same++;
-        else if(basketball && h.basketball) same++;
-        else if(football && h.football) same++;
-        else if(tennis && h.tennis) same++;
-        else if(table_tennis && h.table_tennis) same++;
-        else if(box && h.box) same++;
-        else if(shoot && h.shoot) same++;
-        else if(volleyball && h.volleyball) same++;
-        else if(baseball && h.baseball) same++;
-        else if(gymnastic && h.gymnastic) same++;
-        else if(sky && h.sky) same++;
-        else if(ice_skating && h.ice_skating) same++;
-        else if(marathon && h.marathon) same++;
-        else if(row && h.row) same++;
-        else if(surf && h.surf) same++;
+        if(run && h.run)same++;
+        if(cycle && h.cycle) same++;
+        if(basketball && h.basketball) same++;
+        if(football && h.football) same++;
+        if(tennis && h.tennis) same++;
+        if(table_tennis && h.table_tennis) same++;
+        if(box && h.box) same++;
+        if(shoot && h.shoot) same++;
+        if(volleyball && h.volleyball) same++;
+        if(baseball && h.baseball) same++;
+        if(gymnastic && h.gymnastic) same++;
+        if(sky && h.sky) same++;
+        if(ice_skating && h.ice_skating) same++;
+        if(marathon && h.marathon) same++;
+        if(row && h.row) same++;
+        if(surf && h.surf) same++;
         //music
-        else if (classical && h.classical) same++;
-        else if (jazz_blues && h.jazz_blues) same++;
-        else if (folk && h.folk) same++;
-        else if (pop && h.pop) same++;
-        else if (rock && h.rock) same++;
-        else if (dance && h.dance) same++;
-        else if (rap && h.rap) same++;
-        else if (electronic && h.electronic) same++;
+        if (classical && h.classical) same++;
+        if (jazz_blues && h.jazz_blues) same++;
+        if (folk && h.folk) same++;
+        if (pop && h.pop) same++;
+        if (rock && h.rock) same++;
+        if (dance && h.dance) same++;
+        if (rap && h.rap) same++;
+        if (electronic && h.electronic) same++;
 
         return same;
     }

@@ -10,7 +10,7 @@ using std::ofstream;
 CommandParser spot_palm;
 int main() {
     freopen("case_test.txt", "r", stdin);
-    freopen("case_test_res.txt", "w", stdout);
+//    freopen("case_test_res.txt", "w", stdout);
     string commandLine, result;
     while(std::getline(cin , commandLine)) {
         result = spot_palm.run(commandLine);
