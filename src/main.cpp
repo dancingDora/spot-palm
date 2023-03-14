@@ -1,8 +1,5 @@
 #include <iostream>
 #include <fstream>
-#include "tools.h"
-#include "user.h"
-#include "spot.h"
 #include "command_parser.h"
 #include <stdlib.h>
 using std::cin;

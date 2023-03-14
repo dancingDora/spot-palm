@@ -39,6 +39,38 @@ public:
     }
 };
 
+class comment{
+public:
+    unsigned like;
+    unsigned cid;
+    bool refuseRe;
+    Char<1024> data;
+    comment() {
+        like = 0;
+        refuseRe = false;
+        cid = 0;
+    }
+    comment(unsigned c, string n):cid(c){
+        data = n;
+        refuseRe = false;
+        like = 0;
+    }
+};
+
+class Comments{
+public:
+    unordered_map<unsigned, comment> comments;
+    unsigned size;
+
+    Comments():size(0){comments.clear();}
+
+    bool put(string x) {
+
+    }
+
+
+};
+
 class Spot {
 public:
     Char<64> spotName;
@@ -47,6 +79,7 @@ public:
     const PROVINCE province;//
     Char<64> city;//城市
     const double NS, WE;//经纬度
+    Comments comments;
 public:
     Spot():NS(39.9042), WE(116.4074), province(Beijing), sid(0) {
         status.visitorAmount = status.humidity = status.consumption = status.distance = status.temp = 3;
@@ -55,7 +88,7 @@ public:
          const double &t, const double &v, const double &h, const double &c, const double &d,
          const PROVINCE &provinceA, const string &cityA,
          const double & NSA, const double & WEA)
-         : province(provinceA), NS(NSA), WE(WEA), sid(sidA){
+            : province(provinceA), NS(NSA), WE(WEA), sid(sidA){
         spotName = spotNameA;
         status.temp = t;
         status.distance = d;

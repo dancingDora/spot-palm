@@ -101,7 +101,7 @@ string nameBase[] = {
         "Craig",
         "Crystal",
         "Cynthia",
-        "Daisy"
+        "Daisy",
         "Dale",
         "Damian",
         "Damon",
@@ -175,39 +175,38 @@ string nameBase[] = {
 };
 int main() {
     ofstream fout("case_test.txt");
-    for(int i = 1; i <= 168; i++) {
+    for(int i = 0; i <= 169; i++) {
         fout << "add_user -n " << nameBase[i] << " -v 1 -g 1 -m abc -i " << i + 1 << " -p " << i + 1 << endl;
     }
-    for(int i = 1; i <= 168; i++) {
+    for(int i = 1; i <= 170; i++) {
         fout << "login -i " << i << " -p " << i << endl;
     }
-    for(int i = 1; i <= 168; i++) {
-        fout << "modify_graph -u " << i;
-        fout << " -swim " << rand() % 1;
-        fout << " -run " << rand() % 1;
-        fout << " -cycle " << rand() % 1;
-        fout << " -basketball " << rand() % 1;
-        fout << " -football " << rand() % 1;
-        fout << " -tennis " << rand() % 1;
-        fout << " -table_tennis " << rand() % 1;
-        fout << " -box " << rand() % 1;
-        fout << " -shoot " << rand() % 1;
-        fout << " -volleyball " << rand() % 1;
-        fout << " -baseball " << rand() % 1;
-        fout << " -gymnastic " << rand() % 1;
-        fout << " -sky " << rand() % 1;
-        fout << " -ice_skating " << rand() % 1;
-        fout << " -marathon " << rand() % 1;
-        fout << " -row " << rand() % 1;
-        fout << " -surf " << rand() % 1;
-        fout << " -IC 8bit " << rand() % 1;
-        fout << " -classical " << rand() % 1;
-        fout << " -jazz_blues " << rand() % 1;
-        fout << " -folk " << rand() % 1;
-        fout << " -pop " << rand() % 1;
-        fout << " -rock " << rand() % 1;
-        fout << " -dance " << rand() % 1;
-        fout << " -rap " << rand() % 1;
-        fout << " -electronic " << rand() % 1 << endl;
+    for(int i = 1; i <= 170; i++) {
+        fout << "modify_graph -i " << i;
+        fout << " -swim " << (rand() % 2) && (rand() % 2);
+        fout << " -run " << (rand() % 2) && (rand() % 2);
+        fout << " -cycle " << (rand() % 2) && (rand() % 2);
+        fout << " -basketball " << (rand() % 2) && (rand() % 2);
+        fout << " -football " << (rand() % 2) && (rand() % 2);
+        fout << " -tennis " << (rand() % 2) && (rand() % 2);
+        fout << " -table_tennis " << (rand() % 2) && (rand() % 2);
+        fout << " -box " << (rand() % 2) && (rand() % 2);
+        fout << " -shoot " << (rand() % 2) && (rand() % 2);
+        fout << " -volleyball " << (rand() % 2) && (rand() % 2);
+        fout << " -baseball " << (rand() % 2) && (rand() % 2);
+        fout << " -gymnastic " << (rand() % 2) && (rand() % 2);
+        fout << " -sky " << (rand() % 2) && (rand() % 2);
+        fout << " -ice_skating " << (rand() % 2) && (rand() % 2);
+        fout << " -marathon " << (rand() % 2) && (rand() % 2);
+        fout << " -row " << (rand() % 2) && (rand() % 2);
+        fout << " -surf " << (rand() % 2) && (rand() % 2);
+        fout << " -classical " << (rand() % 2) && (rand() % 2);
+        fout << " -jazz_blues " << (rand() % 2) && (rand() % 2);
+        fout << " -folk " << (rand() % 2) && (rand() % 2);
+        fout << " -pop " << (rand() % 2) && (rand() % 2);
+        fout << " -rock " << (rand() % 2) && (rand() % 2);
+        fout << " -dance " << (rand() % 2) && (rand() % 2);
+        fout << " -rap " << (rand() % 2) && (rand() % 2);
+        fout << " -electronic " << ((rand() % 2) && (rand() % 2)) << endl;
     }
 }

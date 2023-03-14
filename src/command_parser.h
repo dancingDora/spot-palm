@@ -6,7 +6,7 @@
 #define SPOT_PALM_COMMAND_PARSER_H
 
 #include <iostream>
-#include "spot.h"
+#include "spots.h"
 #include "user.h"
 
 using std::string;
@@ -328,7 +328,6 @@ public:
         unsigned hobbies_cond = 0;
         unsigned i = 0;
         while(!key.empty()) {
-
             if(key == "-ls" || key == "ls") {
                 cout << "swim\t";
                 cout << "run\t";
@@ -356,7 +355,7 @@ public:
                 cout << "rap\t";
                 cout << "electronic\n";
             }
-            else if(key == "-u")
+            else if(key == "-i")
                 i = stoi(token.NextToken());
             else if(key == "-swim") {
                 key = token.NextToken();
@@ -494,7 +493,7 @@ public:
         unsigned i;
         bool quit;
         while(!key.empty()) {
-            if(key == "-u") i = stoi(token.NextToken());
+            if(key == "-i") i = stoi(token.NextToken());
             else
                 cerr << "[CommandParser parseRecommendGraph] wrong input / not such command.\n";
         }

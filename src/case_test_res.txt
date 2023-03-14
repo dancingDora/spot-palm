@@ -166,7 +166,8 @@
 [36mAdd user success.[0m
 [36mAdd user success.[0m
 [36mAdd user success.[0m
-Login failed.
+[36mAdd user success.[0m
+[36mAdd user success.[0m
 [33mLogin success.[0m
 [33mLogin success.[0m
 [33mLogin success.[0m
@@ -334,7 +335,12 @@ Login failed.
 [33mLogin success.[0m
 [33mLogin success.[0m
 [33mLogin success.[0m
-Modify Graph failed.
+[33mLogin success.[0m
+[33mLogin success.[0m
+[33mLogin success.[0m
+[33mModify Graph success.[0m
+[33mModify Graph success.[0m
+[33mModify Graph success.[0m
 [33mModify Graph success.[0m
 [33mModify Graph success.[0m
 [33mModify Graph success.[0m

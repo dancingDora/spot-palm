@@ -45,13 +45,17 @@ public:
 暂时只支持默认构造函数 -- 用来赋予用户应有的权限
 
 
-## `tools.h`
+## tools.h文件
 
+--------
 ### class Char
-
----- char数组，方便以后进行文件读写
+```c
+template<int n = 64>
+class Char {};
+```
+char数组，方便以后进行文件读写
 用法
-* **声明 :** `Char<16>`类中参数为数组大小，默认64
+* **声明 :** `Char<int>`类中参数为数组大小，默认64
 * **[] :** 同`string`的`[]`用法
 * **`c_str()` :** 返回char*
 * **`str()` :** 返回string
@@ -59,3 +63,12 @@ public:
 * 支持`>, <, ==`等比较，调用`strcmp()`函数
 * 支持`=`赋值
 * 支持`>>`,`<<`输入输出流
+------
+### class TokenScanner
+用于指令读取
+* `TokenScanner`类参数为`size_t pos`记录字符串位置，`Buffer`目标字符串
+* 用法
+  * 声明：`TokenScanner token(t)`(t表示目标字符串)
+  * 使用：`string tmp = token.NextToken()` 获取行中的下一个字符串，函数参数为`char`,默认为空格，故不填写参数即可表示读取下一个参数
+
+  
