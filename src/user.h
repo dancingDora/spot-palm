@@ -5,6 +5,7 @@
 #define 旅游景点模糊推荐_USER_H
 
 #include "tools.h"
+#include "spots.h"
 #include <unordered_map>
 #include <iostream>
 #include <vector>
@@ -16,6 +17,7 @@ using std::cout;
 using std::vector;
 using std::ostream;
 
+class SpotManager;
 class UserManager;
 class character{
 public:
@@ -32,12 +34,15 @@ public:
     const int privilege;  //privilege  :  visitor-0 ; user-1  ; contributor-3 ; leader-7.
     int gender;           //gender     :  male-1   ; female-2; others-0.
     character ch;
-    vector<unsigned> friendList;
+
+    vector<unsigned> historyComments; // history written comments;
+
+    vector<unsigned> friendList; // friends list of uid
+
     bool sos;
     //tmp list
     vector<unsigned> recommendUIDList_G; // recommend according to user Graph;
     vector<unsigned> recommendUIDList_S; // recommend according to user Spot browse history;
-
 
     USER() : password(), uid(0), userName(), privilege(), gender(0) {
         sos = false;
@@ -303,7 +308,7 @@ public:
         //algorithm : calculate recommendList
         int cnt = 0;
         for(auto it : users) {
-            Max = std::max(Max, users[u].ch.hobbies.getDifference(users[it.first].ch.hobbies));
+            Max = std::max(Max,users[u].ch.hobbies.getDifference(users[it.first].ch.hobbies));
             recommendList[users[u].ch.hobbies.getDifference(users[it.first].ch.hobbies)].push_back(it.second.uid);
         }
         for(int i = Max; i > 0; i--) {
@@ -313,6 +318,7 @@ public:
         return true;
     }
 
+    //usage for debug
     void checkRecommend (const unsigned &u) {
         if(users.find(u) == users.cend()) {
             cerr << u << " not found.\n";
@@ -323,6 +329,14 @@ public:
         cout << "Recommend success : End of check RecommendUIDList_G.\n";
         return;
     }
+
+    //Add Comments : u(user id) -> s(spot id) : c(put comments)
+    bool addComments(const unsigned &u, const unsigned &s, const string &c){
+
+    };
+
+    //Like Comments : u(user id) -> s(spot id) : c(like comments[c])
+    bool likeComments(const unsigned &u, const unsigned &s, const unsigned &c) {};
 
 
 };
