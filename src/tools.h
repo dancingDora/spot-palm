@@ -345,4 +345,13 @@ public:
 /*需要一个统计区间重叠数量的算法，返回一段区间（pair）或者区间的中点
  */
 
+/*
+ * hash :
+ * unsigned hashUSunsigned u, unsigned s);
+ */
+
+unsigned hashUS(const unsigned &u, const unsigned &s) {
+    return (u << 16) | (s & 0x0000ffffl);
+}
+
 #endif //旅游景点模糊推荐_TOOLS_H

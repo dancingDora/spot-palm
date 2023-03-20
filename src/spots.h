@@ -48,12 +48,12 @@ public:
 
 };
 
-//Comment Package : comments(map<unsigned comment>) , size(int)
+//Comment Package : commentsMap(map<unsigned comment>) , size(int)
 class Comments{
 
 public:
 
-    unordered_map<unsigned, comment> comments;
+    unordered_map<unsigned, comment*> commentsMap;
     unsigned size;
 
     Comments();
@@ -66,9 +66,11 @@ public:
 
     void remove(const unsigned &id, const string &s);
 
-    comment get(const unsigned &id);
+    comment* get(const unsigned &id);
 
-    comment &operator [] (const unsigned &id);
+    bool addYourLike(const unsigned &cid);
+
+    comment* &operator [] (const unsigned &id);
 
 };
 
@@ -97,14 +99,27 @@ public:
 
     friend ostream& operator << (ostream &SpotOut, const Spot &spot);
 
+    friend bool operator < (const Spot &l, const Spot &r);
+
+    friend bool operator > (const Spot &l, const Spot &r);
+
+    friend bool operator <= (const Spot &l, const Spot &r);
+
+    friend bool operator >= (const Spot &l, const Spot &r);
+
+    friend bool operator == (const Spot &l, const Spot &r);
+
+    friend bool operator != (const Spot &l, const Spot &r);
+
+
 };
 
 class SpotManager {
 public:
 
-    unordered_map<int, Spot> spots;//sid - spots
-    unordered_map<string, vector<Spot> > province_spots;
-    unordered_map<string, Spot> name_spots;
+    unordered_map<unsigned , Spot*> spots;//sid - spots
+    unordered_map<string, vector<Spot*> > province_spots;
+    unordered_map<string, Spot*> name_spots;
 
 public:
 
@@ -121,7 +136,9 @@ public:
 
     bool clear();
 
-};
+    bool putComment(const unsigned &s, const unsigned &u, const unsigned &c, const string &data);
 
+    bool putCommentLike(const unsigned &s, const unsigned &u, const unsigned &c);
+};
 
 #endif //SPOT_PALM_SPOT_H

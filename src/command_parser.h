@@ -28,7 +28,7 @@ public:
         }
         if (key == "exit" || key == "q") return parseExit();
         //clear : please input root password
-        else if(key == "clear") return parseClear(token);
+        else if (key == "clear") return parseClear(token);
         else if (key == "add_user") return parseAddUser(token);
         else if (key == "login") return parseLogin(token);
         else if (key == "logout") return parseLogout(token);

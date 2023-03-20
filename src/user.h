@@ -35,7 +35,7 @@ public:
     int gender;           //gender     :  male-1   ; female-2; others-0.
     character ch;
 
-    vector<unsigned> historyComments; // history written comments;
+    vector<unsigned> historyComments; // history written commentsMap;
 
     vector<unsigned> friendList; // friends list of uid
 
@@ -330,14 +330,16 @@ public:
         return;
     }
 
-    //Add Comments : u(user id) -> s(spot id) : c(put comments)
-    bool addComments(const unsigned &u, const unsigned &s, const string &c){
+    //Add Comments  : u(user id) -> s(spot id) : c(string comment)
+    bool addComments(const unsigned &u, const unsigned &s, const string &c, SpotManager &spotManager) {
+        unsigned res = hashUS(u, s);
+        spotManager.putComment(s, u, res,c);
+    }
 
+    //Like Comments : u(user id) -> s(spot id) : c(like commentsMap[c])
+    bool likeComments(const unsigned &u, const unsigned &s, const unsigned &c, SpotManager &spotManager) {
+        unsigned res = hashUS(u, s);
     };
-
-    //Like Comments : u(user id) -> s(spot id) : c(like comments[c])
-    bool likeComments(const unsigned &u, const unsigned &s, const unsigned &c) {};
-
 
 };
 
