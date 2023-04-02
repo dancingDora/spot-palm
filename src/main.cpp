@@ -8,10 +8,12 @@ using std::endl;
 using std::ifstream;
 using std::ofstream;
 CommandParser spot_palm;
+
 int main() {
     freopen("case_test.txt", "r", stdin);
     freopen("case_test_res.txt", "w", stdout);
     string commandLine, result;
+
     while(std::getline(cin , commandLine)) {
         result = spot_palm.run(commandLine);
         if(result.length()) {
@@ -29,4 +31,4 @@ int main() {
 //
 //set(CMAKE_CXX_STANDARD 17)
 //
-//add_executable(main.cpp tools.h user.h)
+//add_executable(main.cpp tools.h user.h spots.h)

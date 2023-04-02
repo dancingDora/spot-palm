@@ -21,11 +21,13 @@ class CommandParser {
 public:
     string run(const string &t) {
         TokenScanner token(t);
+        unsigned long long timeStamp = stoi(token.NextToken('[', ']'));
         string key = token.NextToken();
         if (!key.length()) {
             cerr << "[CommandParser run] Invalid input, key.length() = 0.\n";
             return "";
         }
+
         if (key == "exit" || key == "q") return parseExit();
         //clear : please input root password
         else if (key == "clear") return parseClear(token);

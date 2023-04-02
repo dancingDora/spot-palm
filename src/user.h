@@ -37,22 +37,24 @@ public:
 
     vector<unsigned> historyComments; // history written commentsMap;
 
-    vector<unsigned> friendList; // friends list of uid
+    //Now it is a lists show followers and follows.
+    vector<unsigned> followerList;
+    vector<unsigned> followList;
 
-    bool sos;
+    bool privacy;
     //tmp list
     vector<unsigned> recommendUIDList_G; // recommend according to user Graph;
     vector<unsigned> recommendUIDList_S; // recommend according to user Spot browse history;
 
     USER() : password(), uid(0), userName(), privilege(), gender(0) {
-        sos = false;
+        privacy = false;
     };
 
     USER(const USER &usr) : uid(usr.uid), privilege(usr.privilege) {
         password = usr.password;
         userName = usr.userName;
         gender = usr.gender;
-        sos = usr.sos;
+        privacy = usr.privacy;
     }
 
     USER(const unsigned &uid, const int &privilege, const int &gender,
@@ -62,7 +64,7 @@ public:
         this->userName = userName;
         this->mailAddress = mailAddress;
         this->password = password;
-        sos = false;
+        privacy = false;
     }
     //获得该用户密码(private),仅限登陆(function : UserManager login(u, p))期间使用
     string getPassWord() const {
@@ -332,15 +334,75 @@ public:
 
     //Add Comments  : u(user id) -> s(spot id) : c(string comment)
     bool addComments(const unsigned &u, const unsigned &s, const string &c, SpotManager &spotManager) {
+        //error handle
+        if(loginUser.find(u) == loginUser.cend()) {
+            cerr << "[UserManager addComments] Invalid addComments : " << u << " not login.\n";
+            return false;
+        }
+        if(users.find(u) == users.cend()) {
+            cerr << "[UserManager addComments] Invalid addComments : " << u << " not exist.\n";
+            return false;
+        }
+        //execute
         unsigned res = hashUS(u, s);
-        spotManager.putComment(s, u, res,c);
+        return spotManager.putComment(s, u, res,c);
     }
 
     //Like Comments : u(user id) -> s(spot id) : c(like commentsMap[c])
     bool likeComments(const unsigned &u, const unsigned &s, const unsigned &c, SpotManager &spotManager) {
+        //error handle
+        if(loginUser.find(u) == loginUser.cend()) {
+            cerr << "[UserManager likeComments] Invalid likeComments : " << u << " not login.\n";
+            return false;
+        }
+        if(users.find(u) == users.cend()) {
+            cerr << "[UserManager likeComments] Invalid likeComments : " << u << " not exist.\n";
+            return false;
+        }
+        //execute
         unsigned res = hashUS(u, s);
+        return spotManager.putCommentLike(s, u, res);
     };
 
+    bool followUsers(const unsigned &u, const unsigned &q) {
+        //error handle
+        if(loginUser.find(u) == loginUser.cend()) {
+            cerr << "[UserManager followUsers] Invalid followUsers : " << u << " not login.\n";
+            return false;
+        }
+        if(users.find(u) == users.cend()) {
+            cerr << "[UserManager followUsers] Invalid followUsers : " << u << " not exist.\n";
+            return false;
+        }
+        if(users.find(q) == users.cend()) {
+            cerr << "[UserManager followUsers] Invalid followUsers : " << q << " not exist.\n";
+            return false;
+        }
+
+        //execute
+        if(users[q].privacy) {
+            cerr << "[UserManager followUsers] Sorry, " << q << " is not allowed to be followed.\n";
+            return false;
+        }
+        users[q].followerList.push_back(u);
+        users[u].followList.push_back(q);
+        return true;
+    }
+
+    bool modifyPrivacy(const unsigned &u, const bool &adjust) {
+        //error handle
+        if(loginUser.find(u) == loginUser.cend()) {
+            cerr << "[UserManager modifyPrivacy] Invalid modifyPrivacy : " << u << " not login.\n";
+            return false;
+        }
+        if(users.find(u) == users.cend()) {
+            cerr << "[UserManager modifyPrivacy] Invalid modifyPrivacy : " << u << " not exist.\n";
+            return false;
+        }
+
+        users[u].privacy = adjust;
+        return true;
+    }
 };
 
 #endif //旅游景点模糊推荐_USER_H

@@ -139,6 +139,8 @@ public:
     bool putComment(const unsigned &s, const unsigned &u, const unsigned &c, const string &data);
 
     bool putCommentLike(const unsigned &s, const unsigned &u, const unsigned &c);
+
+
 };
 
 #endif //SPOT_PALM_SPOT_H
