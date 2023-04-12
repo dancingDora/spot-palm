@@ -6,7 +6,7 @@
 #define SPOT_PALM_QUESTIONARE_H
 
 #include <iostream>
-#include "tools.h"
+#include "util/tools.h"
 
 class GlobalStatus {
 public:
@@ -15,6 +15,7 @@ public:
     Axis humidity;
     Axis consumption;
     Axis distance;
+
 
 };
 

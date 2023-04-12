@@ -7,7 +7,7 @@
 #include <vector>
 #include <algorithm>
 #include <iostream>
-#include "tools.h"
+#include "util/tools.h"
 
 using std::string;
 using std::unordered_map;

@@ -8,6 +8,7 @@
 #include <iostream>
 #include "spots.h"
 #include "user.h"
+#include "util/tools.h"
 
 using std::string;
 using std::cerr;

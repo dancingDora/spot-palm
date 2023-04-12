@@ -4,7 +4,7 @@
 #ifndef 旅游景点模糊推荐_USER_H
 #define 旅游景点模糊推荐_USER_H
 
-#include "tools.h"
+#include "util/tools.h"
 #include "spots.h"
 #include <unordered_map>
 #include <iostream>
