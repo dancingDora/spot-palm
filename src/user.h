@@ -202,7 +202,6 @@ public:
         loginUser.clear();
         return true;
     }
-    //TODO: extend here
 
     bool modifyGraph(const unsigned &u,
                      const unsigned modify_cond) {
@@ -345,6 +344,7 @@ public:
         }
         //execute
         unsigned res = hashUS(u, s);
+        users[u].historyComments.push_back(res);
         return spotManager.putComment(s, u, res,c);
     }
 

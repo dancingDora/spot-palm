@@ -657,9 +657,162 @@ public:
  * unsigned hashUSunsigned u, unsigned s);
  */
 
-unsigned hashUS(const unsigned &u, const unsigned &s) {
-    return (u << 16) | (s & 0x0000ffffl);
+uint32_t hashUS(const unsigned &u, const unsigned &s) {
+    uint32_t res = (u << 16) | (s & 0x0000ffffl);
+    return res;
 }
 
+//interval 只能用构造函数(double ll, double rr)赋值
+
+class Interval {
+public:
+    int ll;
+    int rr;
+    bool empty;
+
+    Interval() {
+        ll = rr = 0;
+        empty = true;
+    }
+
+    Interval(const int &l, const int &r) {
+        ll = l, rr = r;
+        bool invalid = ll > rr;
+        empty = (!ll & !rr) || invalid;
+        if (empty) ll = rr = -1;
+    }
+};
+class Point{
+public:
+    int pos;
+    int weight;
+    Point *nxt;
+    Point *frt;
+
+    Point(const int &pos, const int &weight, Point *front = NULL, Point *next = NULL)
+            :pos(pos),weight(weight),nxt(next),frt(front){};
+    ~Point(){
+        delete nxt;
+        delete frt;
+    }
+
+};
+class Axis{
+
+private:
+
+    Point *head;
+
+public:
+
+    Axis():head(nullptr){};
+
+
+
+    Axis &operator+(const Interval &interval) {
+        insert(interval);
+        return *this;
+    }
+
+    Axis &operator-(const Interval &interval) {
+        remove(interval);
+        return *this;
+    }
+
+    Axis operator[](const Interval &interval) const {
+        Axis *res = copyAxis(*this);
+        Point *ptr =res->find(interval.ll);
+        res->head = ptr;
+        ptr->frt = new Point(0,0,NULL,NULL);
+        while(ptr->nxt && ptr->nxt->pos <= interval.rr) {
+            ptr = ptr->nxt;
+        }
+        if(ptr->nxt)
+            ptr->nxt = nullptr;
+        return *res;
+    }
+
+    int operator[](const int &pos) const {
+        Point *ptr = head;
+        while(ptr) {
+            if(ptr->pos == pos) return ptr->weight;
+            else if(ptr->pos < pos) ptr = ptr->nxt;
+            else if(ptr->pos > pos) return ptr->frt->weight;
+        }
+        return 0;
+    }
+
+    Axis &operator+=(const Interval &interval) {
+        *this = *this + interval;
+        return *this;
+    }
+
+    Axis &operator-=(const Interval &interval) {
+        *this = *this - interval;
+        return *this;
+    }
+
+private:
+
+    Point* find(const int &pos) {
+        Point *ptr = head;
+        while(ptr) {
+            if(ptr->pos == pos) return ptr;
+            if(ptr->pos < pos)
+                if(ptr->nxt)ptr = ptr->nxt;
+                else {
+                    Point *newPoint = new Point(pos, 0, ptr, nullptr);
+                    ptr->nxt = newPoint;
+                    return newPoint;
+                }
+            else if(ptr->pos > pos) {
+                Point *newPoint = new Point(pos, ptr->frt->weight, ptr->frt, ptr);
+                ptr->frt->nxt = newPoint;
+                ptr->frt = newPoint;
+                return newPoint;
+            }
+        }
+    }
+
+    bool insert(const Interval &interval) {
+        if(interval.empty) return false;
+        if(head == nullptr) {
+            head = new Point(interval.ll, 1, nullptr, nullptr);
+            head->nxt = new Point(interval.rr, 0, head, nullptr);
+            return true;
+        }
+        Point* start = find(interval.ll);
+        Point* end = find(interval.rr);
+        for(auto it = start; it != end; it = it->nxt)
+            it->weight++;
+        return true;
+    }
+
+    bool remove(const Interval &interval) {
+        if(interval.empty) return false;
+        Point* start = find(interval.ll);
+        Point* end = find(interval.rr);
+        for(auto it = start; it != end; it = it->nxt)
+            it->weight--;
+        return true;
+    }
+
+    Axis * copyAxis(const Axis &x) const {
+        Axis *res = new Axis();
+        res->head = new Point(x.head->pos, x.head->weight);
+        Point *ptrToRes = res->head;
+        Point *ptr = x.head->nxt;
+        while(ptr) {
+            Point *tmp = new Point(ptr->pos, ptr->weight);
+            ptrToRes->nxt = tmp;
+            tmp->frt = ptrToRes;
+            ptrToRes = tmp;
+
+            ptr = ptr->nxt;
+        }
+        return res;
+    }
+
+};
 
 #endif //旅游景点模糊推荐_TOOLS_H

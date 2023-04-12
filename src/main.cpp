@@ -1,12 +1,13 @@
 #include <iostream>
 #include <fstream>
 #include "command_parser.h"
-#include <stdlib.h>
+
 using std::cin;
 using std::cout;
 using std::endl;
 using std::ifstream;
 using std::ofstream;
+
 CommandParser spot_palm;
 
 int main() {
