@@ -1,4 +1,4 @@
-"/Users/luyifan/Library/Application Support/JetBrains/Toolbox/apps/CLion/character-0/223.7571.171/CLion.app/Contents/bin/cmake/mac/bin/cmake" -DCMAKE_BUILD_TYPE=Debug "-DCMAKE_MAKE_PROGRAM=/Users/luyifan/Library/Application Support/JetBrains/Toolbox/apps/CLion/character-0/223.7571.171/CLion.app/Contents/bin/ninja/mac/ninja" -G Ninja -S /Users/luyifan/CLionProjects/spot-palm -B /Users/luyifan/CLionProjects/spot-palm/cmake-build-debug
+"/Users/luyifan/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/223.7571.171/CLion.app/Contents/bin/cmake/mac/bin/cmake" -DCMAKE_BUILD_TYPE=Debug "-DCMAKE_MAKE_PROGRAM=/Users/luyifan/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/223.7571.171/CLion.app/Contents/bin/ninja/mac/ninja" -G Ninja -S /Users/luyifan/CLionProjects/spot-palm/src -B /Users/luyifan/CLionProjects/spot-palm/src/cmake-build-debug
 -- Configuring done
 -- Generating done
--- Build files have been written to: /Users/luyifan/CLionProjects/spot-palm/cmake-build-debug
+-- Build files have been written to: /Users/luyifan/CLionProjects/spot-palm/src/cmake-build-debug

@@ -216,6 +216,7 @@ int main() {
     for(int i = 1; i <= 170; i++) {
         fout << "recommend_graph -i " << i << endl;
     }
+    //cout << "hello";
 }
 //class SpotManager;
 //class UserManager{

@@ -47,6 +47,10 @@ UserManager::UserManager() {
     users.clear();
 }
 
+UserManager::~UserManager() {
+    clear();
+}
+
 bool UserManager::addUser(const std::string &user_name, const int &privilege,
              const int &gender, const std::string &mail_address,
              const unsigned &uid, const string &pass_word){

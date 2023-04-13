@@ -237,4 +237,5 @@ bool SpotManager::putCommentLike(const unsigned &s, const unsigned &u, const uns
 
     //Add your treasure like
     spots[s]->comments.addYourLike(c);
+    return true;
 }

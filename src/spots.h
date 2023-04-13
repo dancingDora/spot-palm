@@ -8,7 +8,7 @@
 #include <vector>
 #include <algorithm>
 #include <iostream>
-#include "util/tools.h"
+#include "tools.h"
 #include "global_status.h"
 
 using std::string;
@@ -123,7 +123,7 @@ public:
     unordered_map<string, vector<Spot*> > province_spots;
     unordered_map<string, Spot*> name_spots;
 
-    GlobalStatus global_status;
+//    GlobalStatus global_status;
 
 public:
 

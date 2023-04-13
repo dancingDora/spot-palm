@@ -8,7 +8,7 @@
 #include <iostream>
 #include "spots.h"
 #include "user.h"
-#include "util/tools.h"
+#include "tools.h"
 
 using std::string;
 using std::cerr;
@@ -16,10 +16,14 @@ using std::cout;
 using std::stoi;
 using std::stod;
 
+
+
 class CommandParser {
 
     UserManager users;
     SpotManager spots;
+
+    PARSER_MODE MODE = SERVER;
 
 public:
 
@@ -33,7 +37,7 @@ public:
         }
 
         if (key == "exit" || key == "q") return parseExit();
-        //clear : please input root password
+//        clear : please input root password
         else if (key == "clear") return parseClear(token);
         else if (key == "add_user") return parseAddUser(token);
         else if (key == "login") return parseLogin(token);
@@ -48,18 +52,23 @@ public:
         else if (key == "follow_users") return parseFollowUsers(token);
         else if (key == "modify_privacy") return parseModifyPrivacy(token);
         else if (key == "add_spot") return parseAddSpot(token);
+
+        else if (key == "modify_spot_palm_mode") return parseModifyMode(token);
+
         else if (key == "help") return parseHelp();
+
         else {
             cerr << "[CommandParser run] Invalid key, command not found.\n";
             cout << "If you don`t know how to use spot-palm for command line,\n";
             cout << "You can try to input `help`.\n";
             return "";
         }
+        return "";
     }
 
-    //bool addUser(const std::string &user_name, const int &privilege,
-    //                 const int &gender, const std::string &mail_address,
-    //                 const unsigned &uid, const string &pass_word)
+//    bool addUser(const std::string &user_name, const int &privilege,
+//                     const int &gender, const std::string &mail_address,
+//                     const unsigned &uid, const string &pass_word)
     string parseAddUser(TokenScanner &token) {
         string key = token.NextToken();
         string n;//user_name
@@ -663,11 +672,19 @@ public:
         }
         return users.modifyPrivacy(u, a) ?
                "\033[33mModify Privacy success.\033[0m\n" : "Modify Privacy failed.\n";
+    }
 
+    string parseModifyMode(TokenScanner &token){
+        string key = token.NextToken();
+        unsigned u;
+        string p;
+        while(!key.empty()) {
+            if(u == )
+        }
     }
 
     string parseHelp() {
-        return help() ? "parse help failed" : "\033[36mYou`re welcome.\033[0m\n";
+        return help() ? "\033[36mYou`re welcome.\033[0m\n" : "parse help failed";
     }
 
     string parseExit() {

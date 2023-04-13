@@ -150,8 +150,8 @@
 	"kind" : "cmakeFiles",
 	"paths" : 
 	{
-		"build" : "/Users/luyifan/CLionProjects/spot-palm/cmake-build-debug",
-		"source" : "/Users/luyifan/CLionProjects/spot-palm"
+		"build" : "/Users/luyifan/CLionProjects/spot-palm/src/cmake-build-debug",
+		"source" : "/Users/luyifan/CLionProjects/spot-palm/src"
 	},
 	"version" : 
 	{

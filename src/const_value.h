@@ -46,6 +46,9 @@ enum STATUS_DEGREE {
     HIGH
 };
 
-
+enum PARSER_MODE {
+    SERVER,
+    CLIENT
+};
 #endif //SPOT_PALM_CONST_VALUE_H
 

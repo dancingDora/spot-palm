@@ -6,7 +6,7 @@
 #define SPOT_PALM_QUESTIONARE_H
 
 #include <iostream>
-#include "util/tools.h"
+#include "tools.h"
 
 class GlobalStatus {
 

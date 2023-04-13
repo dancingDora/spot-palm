@@ -4,7 +4,7 @@
 #ifndef 旅游景点模糊推荐_USER_H
 #define 旅游景点模糊推荐_USER_H
 
-#include "util/tools.h"
+#include "tools.h"
 #include "spots.h"
 #include <unordered_map>
 #include <iostream>
@@ -68,14 +68,17 @@ public:
     friend ostream &operator << (ostream &uout, const User &u);
 };
 
-std::unordered_map<unsigned, int> loginUser;
 class UserManager{
 public:
+
     std::unordered_map<unsigned, User> users;
+    std::unordered_map<unsigned, int> loginUser;
+
 public:
     UserManager();
     //bool addUser(... user.enum) return true : false
-    ~UserManager() {clear();}
+    ~UserManager();
+
     bool addUser(const std::string &user_name, const int &privilege,
                  const int &gender, const std::string &mail_address,
                  const unsigned &uid, const string &pass_word);
