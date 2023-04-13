@@ -665,6 +665,14 @@ uint32_t hashUS(const unsigned &u, const unsigned &s) {
     return res;
 }
 
+// int[] to status
+// order : temperature,     humidity,   consumption,
+//         100-400          n% * 100    n
+//
+//      visitorAmount,      distance
+//      log_10^(n) * 100    log_10^n(km) * 100
+//
+
 //interval 只能用构造函数(double ll, double rr)赋值
 
 class Interval {
@@ -710,8 +718,6 @@ public:
 
     Axis():head(nullptr){};
 
-
-
     Axis &operator+(const Interval &interval) {
         insert(interval);
         return *this;
@@ -753,6 +759,17 @@ public:
     Axis &operator-=(const Interval &interval) {
         *this = *this - interval;
         return *this;
+    }
+
+    int highest() {
+        if(!head) return -1;
+        Point *ptr = head;
+        int weight = head->weight;
+        while(ptr->nxt) {
+            if(ptr->weight > weight) weight = ptr->weight;
+            ptr = ptr->nxt;
+        }
+        return weight;
     }
 
 private:

@@ -17,12 +17,15 @@ using std::stoi;
 using std::stod;
 
 class CommandParser {
+
     UserManager users;
     SpotManager spots;
+
 public:
+
     string run(const string &t) {
         TokenScanner token(t);
-        unsigned long long timeStamp = stoi(token.NextToken('[', ']'));
+//        unsigned long long timeStamp = stoi(token.NextToken('[', ']'));
         string key = token.NextToken();
         if (!key.length()) {
             cerr << "[CommandParser run] Invalid input, key.length() = 0.\n";
@@ -40,12 +43,16 @@ public:
         else if (key == "modify_graph") return parseModifyGraph(token);
         else if (key == "recommend_graph") return parseRecommendGraph(token);
         else if (key == "query_graph") return parseQueryGraph(token);
+        else if (key == "add_comments") return parseAddComments(token);
+        else if (key == "like_comments") return parseLikeComments(token);
+        else if (key == "follow_users") return parseFollowUsers(token);
+        else if (key == "modify_privacy") return parseModifyPrivacy(token);
         else if (key == "add_spot") return parseAddSpot(token);
-        else if (key == "--help") return parseHelp();
+        else if (key == "help") return parseHelp();
         else {
             cerr << "[CommandParser run] Invalid key, command not found.\n";
             cout << "If you don`t know how to use spot-palm for command line,\n";
-            cout << "You can try to input `--help`.\n";
+            cout << "You can try to input `help`.\n";
             return "";
         }
     }
@@ -90,7 +97,7 @@ public:
                 p = token.NextToken();
                 test_cond |= 0b100000l;
             } else {
-                cerr << "[CommandParser parseAddUser] wrong input / not such command.\n";
+                cerr << "[CommandParser parseAddUser] wrong input / no such command.\n";
             }
             key = token.NextToken();
         }
@@ -120,7 +127,7 @@ public:
                 p = token.NextToken();
                 test_cond |= 0b10l;
             } else {
-                cerr << "[CommandParser parseLogin] wrong input / not such command.\n";
+                cerr << "[CommandParser parseLogin] wrong input / no such command.\n";
             }
             key = token.NextToken();
         }
@@ -142,7 +149,7 @@ public:
         while (!key.empty()) {
             if (key == "-i") i = stoi(token.NextToken());
             else {
-                cerr << "[CommandParser parseLogout] wrong input / not such command.\n";
+                cerr << "[CommandParser parseLogout] wrong input / no such command.\n";
             }
             key = token.NextToken();
         }
@@ -176,7 +183,7 @@ public:
                 //cout << "-q read success : " << q << std::endl;//output debug
             }
             else {
-                cerr << "[CommandParser parseQueryProfile] wrong input / not such command.\n";
+                cerr << "[CommandParser parseQueryProfile] wrong input / no such command.\n";
             }
             key = token.NextToken();
         }
@@ -221,7 +228,7 @@ public:
                 test_cond |= 0b100l;
             }
             else {
-                cerr << "[CommandParser parseModifyProfile] wrong input / not such command.\n";
+                cerr << "[CommandParser parseModifyProfile] wrong input / no such command.\n";
             }
             key = token.NextToken();
         }
@@ -234,8 +241,8 @@ public:
         }
         return users.modifyProfile(i,g,m,n,test_cond)
         ? "\033[33mModify Profile success.\033[0m\n" : "Modify Profile failed.\n";
-
     }
+
     //bool addSpot(const string &spotNameA, const int &sidA,
     //                 const double &t, const double &v, const double &h, const double &c, const double &d,
     //                 const PROVINCE &provinceA, const string &cityA,
@@ -305,7 +312,7 @@ public:
                 test_cond |= 0b1000000000l;
             }
             else {
-                cerr << "[CommandParser parseAddSpot] wrong input / not such command.\n";
+                cerr << "[CommandParser parseAddSpot] wrong input / no such command.\n";
             }
             key = token.NextToken();
         }
@@ -318,15 +325,17 @@ public:
         return spots.addSpot(n,i,t,v,h,c,d,p,s,ns,we)
         ? "\033[33mAdd Spot success.\033[0m\n" : "Add Spot failed.\n";
     }
+
     string parseClear(TokenScanner &token) {
         string key = token.NextToken();
-        if(key != "dsqcxtwjhlyf") {
+        if(key != "root_password") {
             return "clear failed.\n";
         }
         users.clear();
         spots.clear();
         return "clear success!\n";
     }
+
     string parseModifyGraph(TokenScanner &token) {
         string key = token.NextToken();
         unsigned hobbies_cond = 0;
@@ -490,39 +499,180 @@ public:
         }
         return users.modifyGraph(i, hobbies_cond)
         ?"\033[33mModify Graph success.\033[0m\n" : "Modify Graph failed.\n";
-
     }
+
     string parseRecommendGraph(TokenScanner &token) {
         string key = token.NextToken();
         unsigned i;
+        bool test_cond = false;
         while(!key.empty()) {
-            if(key == "-i") i = stoi(token.NextToken());
+            if(key == "-i") {
+                i = stoi(token.NextToken());
+                test_cond = true;
+            }
             else
-                cerr << "[CommandParser parseRecommendGraph] wrong input / not such command.\n";
+                cerr << "[CommandParser parseRecommendGraph] wrong input / no such command.\n";
             key = token.NextToken();
+        }
+        {// test the parameter is completed
+            if (!test_cond) {
+                cerr << "[CommandParser parseQueryGraph] the parameter is not completed.\n";
+                return "[CommandParser parseQueryGraph] the parameter is not completed.\n";
+            }
         }
 
         return users.recommendGraph(i)
                ?"\033[33mRecommend Graph success.\033[0m\n" : "Recommend Graph failed.\n";
     }
+
     string parseQueryGraph(TokenScanner &token) {
         string key = token.NextToken();
         unsigned i;
         unsigned q;
+        unsigned test_cond = 0b00l;
         while(!key.empty()) {
-            if(key == "-i") i = stoi(token.NextToken());
-            else if(key == "-q") q = stoi(token.NextToken());
-            else cerr << "[CommandParser parseQueryGraph] wrong input / not such command.\n";
+            if(key == "-i") {
+                i = stoi(token.NextToken());
+                test_cond |= 0b01l;
+            }
+            else if(key == "-q") {
+                q = stoi(token.NextToken());
+                test_cond |= 0b10l;
+            }
+            else cerr << "[CommandParser parseQueryGraph] wrong input / no such command.\n";
             key = token.NextToken();
+        }
+        {// test the parameter is completed
+            if (test_cond != 0b11l) {
+                cerr << "[CommandParser parseQueryGraph] the parameter is not completed.\n";
+                return "[CommandParser parseQueryGraph] the parameter is not completed.\n";
+            }
         }
         return users.queryGraph(i, q)
                ?"\033[33mQuery Graph success.\033[0m\n" : "Query Graph failed.\n";
     }
+
+    string parseAddComments(TokenScanner &token) {
+        string key = token.NextToken();
+        unsigned i, s;
+        string c;
+        unsigned test_cond = 0b000l;
+        while(!key.empty()) {
+            if(key == "-i") {
+                i = stoi(token.NextToken());
+                test_cond |= 0b001l;
+            }
+            else if(key == "-s") {
+                s = stoi(token.NextToken());
+                test_cond |= 0b010l;
+            }
+            else if(key == "-m") {
+                c = token.NextToken('"','"');
+                test_cond |= 0b100l;
+            }
+            else cerr << "[CommandParser parseAddComments] wrong input / no such command.\n";
+            key = token.NextToken();
+        }
+        {// test the parameter is completed
+            if (test_cond != 0b111l) {
+                cerr << "[CommandParser parseAddComments] the parameter is not completed.\n";
+                return "[CommandParser parseAddComments] the parameter is not completed.\n";
+            }
+        }
+        return users.addComments(i, s, c, spots) ?
+        "\033[33mAdd Comments success.\033[0m\n" : "Add Comments failed.\n";
+    }
+
+    string parseLikeComments(TokenScanner &token) {
+        string key = token.NextToken();
+        unsigned i, s, c;
+        unsigned test_cond = 0;
+        while(!key.empty()) {
+            if(key == "-i") {
+                i = stoi(token.NextToken());
+                test_cond |= 0b001;
+            }
+            else if(key == "-s") {
+                s = stoi(token.NextToken());
+                test_cond |= 0b010;
+            }
+            else if(key == "-c") {
+                c = stoi(token.NextToken());
+                test_cond |= 0b100;
+            }
+            else cerr << "[CommandParser parseAddComments] wrong input / no such command.\n";
+            key = token.NextToken();
+        }
+        {// test the parameter is completed
+            if (test_cond != 0b111l) {
+                cerr << "[CommandParser parseAddComments] the parameter is not completed.\n";
+                return "[CommandParser parseAddComments] the parameter is not completed.\n";
+            }
+        }
+        return users.likeComments(i, s, c, spots) ?
+        "\033[33mLike Comments success.\033[0m\n" : "Like Comments failed.\n";
+    }
+
+    string parseFollowUsers(TokenScanner &token) {
+        string key = token.NextToken();
+        unsigned i, q;
+        unsigned test_cond = 0b00l;
+        while(!key.empty()) {
+            if(key == "-i") {
+                i = stoi(token.NextToken());
+                test_cond |= 0b01;
+            }
+            else if(key == "-q") {
+                q = stoi(token.NextToken());
+                test_cond |= 0b10l;
+            }
+            else cerr << "[CommandParser parseAddComments] wrong input / no such command.\n";
+            key = token.NextToken();
+        }
+        {// test the parameter is completed
+            if (test_cond != 0b11l) {
+                cerr << "[CommandParser parseFollowUsers] the parameter is not completed.\n";
+                return "[CommandParser parseFollowUsers] the parameter is not completed.\n";
+            }
+        }
+        return users.followUsers(i, q) ?
+               "\033[33mLike Comments success.\033[0m\n" : "Like Comments failed.\n";
+    }
+
+    string parseModifyPrivacy(TokenScanner &token) {
+        string key = token.NextToken();
+        unsigned u, a;
+        unsigned test_cond = 0b00l;
+        while(!key.empty()) {
+            if(key == "-i") {
+                u = stoi(token.NextToken());
+                test_cond |= 0b01l;
+            }
+            else if(key == "-p") {
+                a = stoi(token.NextToken());
+                test_cond |= 0b10l;
+            }
+            else cerr << "[CommandParser parseAddComments] wrong input / no such command.\n";
+            key = token.NextToken();
+        }
+        {// test the parameter is completed
+            if (test_cond != 0b11l) {
+                cerr << "[CommandParser parseModifyPrivacy] the parameter is not completed.\n";
+                return "[CommandParser parseModifyPrivacy] the parameter is not completed.\n";
+            }
+        }
+        return users.modifyPrivacy(u, a) ?
+               "\033[33mModify Privacy success.\033[0m\n" : "Modify Privacy failed.\n";
+
+    }
+
     string parseHelp() {
         return help() ? "parse help failed" : "\033[36mYou`re welcome.\033[0m\n";
     }
+
     string parseExit() {
         return "bye";
     }
+
 };
 #endif //SPOT_PALM_COMMAND_PARSER_H

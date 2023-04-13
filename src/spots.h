@@ -3,11 +3,13 @@
 //
 #ifndef SPOT_PALM_SPOT_H
 #define SPOT_PALM_SPOT_H
+
 #include <unordered_map>
 #include <vector>
 #include <algorithm>
 #include <iostream>
 #include "util/tools.h"
+#include "global_status.h"
 
 using std::string;
 using std::unordered_map;
@@ -20,7 +22,7 @@ class Status {
 
 public:
 
-    double temp;//温度 1->5   cold -> hot
+    double temperature;//温度 1->5   cold -> hot
     double visitorAmount;//客流量 1->5   cold -> hot
     double humidity;//湿度 1->5   wet -> dry
     double consumption;//平均消费 1->5   low -> high
@@ -120,6 +122,8 @@ public:
     unordered_map<unsigned , Spot*> spots;//sid - spots
     unordered_map<string, vector<Spot*> > province_spots;
     unordered_map<string, Spot*> name_spots;
+
+    GlobalStatus global_status;
 
 public:
 

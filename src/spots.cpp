@@ -13,11 +13,11 @@
  */
 
 Status::Status() {
-    temp = visitorAmount = humidity = consumption = distance = 3;
+    temperature = visitorAmount = humidity = consumption = distance = 3;
 }
 
 ostream & operator << (ostream &StatusOut, Status &status) {
-    StatusOut << "Here temprature is " << status.temp << '\n';
+    StatusOut << "Here temprature is " << status.temperature << '\n';
     StatusOut << "visitor amount is " << status.visitorAmount << '\n';
     StatusOut << "humidity is " << status.humidity << '\n';
     StatusOut << "consumption is " << status.consumption << '\n';
@@ -86,7 +86,7 @@ bool Comments::addYourLike(const unsigned int &cid) {
  |-----+    |          +-----+       |
  */
 Spot::Spot():NS(39.9042), WE(116.4074), province(Beijing), sid(0) {
-    status.visitorAmount = status.humidity = status.consumption = status.distance = status.temp = 3;
+    status.visitorAmount = status.humidity = status.consumption = status.distance = status.temperature = 3;
 }
 
 Spot::Spot(const string &spotNameA, const int &sidA,
@@ -95,7 +95,7 @@ Spot::Spot(const string &spotNameA, const int &sidA,
      const double & NSA, const double & WEA)
         : province(provinceA), NS(NSA), WE(WEA), sid(sidA){
     spotName = spotNameA;
-    status.temp = t;
+    status.temperature = t;
     status.distance = d;
     status.consumption = c;
     status.humidity = h;
@@ -105,7 +105,7 @@ Spot::Spot(const string &spotNameA, const int &sidA,
 
 Spot::Spot(const Spot &s) : province(s.province), NS(s.NS), WE(s.WE), sid(s.sid) {
     spotName = s.spotName;
-    status.temp = s.status.temp;
+    status.temperature = s.status.temperature;
     status.distance = s.status.distance;
     status.consumption = s.status.consumption;
     status.humidity = s.status.humidity;

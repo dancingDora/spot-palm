@@ -4,7 +4,7 @@
 
 #ifndef SPOT_PALM_CONST_VALUE_H
 #define SPOT_PALM_CONST_VALUE_H
-
+#define ROOT_PASSWORD root_password
 const double EARTH_RADIUS = 6371.0;
 enum PROVINCE {//省级行政区 34
     Beijing,Tianjin,Shanghai,Chongqing, // 直辖市 4
@@ -28,6 +28,22 @@ enum ZODIAC_SIGNS {
     Capricorn,
     Aquarius,
     Pisces
+};
+
+enum STATUS_ENUM {
+    Temperature,
+    VisitorAmount,
+    Humidity,
+    Consumption,
+    Distance
+};
+
+enum STATUS_DEGREE {
+    LOW,
+    MID_LOW,
+    MEDIUM,
+    MID_HIGH,
+    HIGH
 };
 
 

@@ -32,7 +32,7 @@ project spot-palm
 
 ### 父类成员
 ```cpp
-class USER {
+class User {
   
 private:
     Char<16> password;
