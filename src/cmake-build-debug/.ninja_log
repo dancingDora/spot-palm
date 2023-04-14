@@ -32,3 +32,9 @@
 4	1988	1681393677723068050	CMakeFiles/spot-palm.dir/main.cpp.o	9ca1d7bd38d95372
 5	2489	1681393678224942873	CMakeFiles/spot-palm.dir/user.cpp.o	8bdcbe8cf846f997
 2489	2616	1681393678358672022	spot-palm	7d6da6f1120ccb91
+4	3395	1681453596353813297	CMakeFiles/spot-palm.dir/global_status.cpp.o	89c60e8b57b345c1
+4	3446	1681453596412039201	CMakeFiles/spot-palm.dir/tools.cpp.o	43f9d333ffe8b87c
+3	4662	1681453597622293342	CMakeFiles/spot-palm.dir/main.cpp.o	9ca1d7bd38d95372
+3	5582	1681453598535483415	CMakeFiles/spot-palm.dir/user.cpp.o	8bdcbe8cf846f997
+3	5804	1681453598764689249	CMakeFiles/spot-palm.dir/spots.cpp.o	1403e7064b54f516
+5804	6003	1681453598974537923	spot-palm	7d6da6f1120ccb91
