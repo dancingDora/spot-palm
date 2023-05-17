@@ -14,17 +14,19 @@ int main() {
 //    freopen("case_test.txt", "r", stdin);
 //    freopen("case_test_res.txt", "w", stdout);
     string commandLine, result;
+    cout << "open spot-palm success.\n";
+    spot_palm.runAsBackEnd();
+//    while(std::getline(cin , commandLine)) {
+//        result = spot_palm.run(commandLine);
+//        if(result.length()) {
+//            if(result == "bye") {
+//                cout << "\033[36mbye bye ~\033[0m\n";
+//                break;
+//            }
+//            cout << result;
+//        }
+//    }
 
-    while(std::getline(cin , commandLine)) {
-        result = spot_palm.run(commandLine);
-        if(result.length()) {
-            if(result == "bye") {
-                cout << "\033[36mbye bye ~\033[0m\n";
-                break;
-            }
-            cout << result;
-        }
-    }
     return 0;
 }
 //cmake_minimum_required(VERSION 3.24)

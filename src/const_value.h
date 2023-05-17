@@ -1,7 +1,7 @@
 //
 // Created by 陆逸凡 on 2023/4/12.
 //
-
+#pragma once
 #ifndef SPOT_PALM_CONST_VALUE_H
 #define SPOT_PALM_CONST_VALUE_H
 #define ROOT_PASSWORD root_password

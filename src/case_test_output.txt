@@ -509,55 +509,55 @@
 [33mModify Graph success.[0m
 [33mModify Graph success.[0m
 swim	run	cycle	shoot	volleyball	gymnastic	marathon	row	surf
-classical	pop	rock	dance	rap	
+classical	pop	rock	dance	rap
 [33mQuery Graph success.[0m
-swim	run	football	tennis	shoot	baseball	gymnastic	sky	ice_skating	marathon	row	
+swim	run	football	tennis	shoot	baseball	gymnastic	sky	ice_skating	marathon	row
 classical	folk	pop	dance	electronic
 [33mQuery Graph success.[0m
 swim	run	volleyball	sky	marathon	row	surf
 folk	rock	dance	rap	electronic
 [33mQuery Graph success.[0m
 run	basketball	football	tennis	box	shoot	volleyball	baseball	gymnastic	ice_skating	surf
-classical	dance	
+classical	dance
 [33mQuery Graph success.[0m
-swim	run	cycle	football	table_tennis	box	baseball	gymnastic	sky	ice_skating	marathon	
+swim	run	cycle	football	table_tennis	box	baseball	gymnastic	sky	ice_skating	marathon
 classical	rock	electronic
 [33mQuery Graph success.[0m
 run	table_tennis	volleyball	baseball	gymnastic	ice_skating	marathon	surf
-jazz_blues	dance	rap	
+jazz_blues	dance	rap
 [33mQuery Graph success.[0m
-cycle	basketball	tennis	table_tennis	shoot	baseball	sky	
-dance	
+cycle	basketball	tennis	table_tennis	shoot	baseball	sky
+dance
 [33mQuery Graph success.[0m
-cycle	basketball	football	tennis	table_tennis	shoot	volleyball	baseball	sky	ice_skating	
-classical	jazz_blues	folk	dance	rap	
+cycle	basketball	football	tennis	table_tennis	shoot	volleyball	baseball	sky	ice_skating
+classical	jazz_blues	folk	dance	rap
 [33mQuery Graph success.[0m
-run	tennis	table_tennis	box	shoot	volleyball	baseball	gymnastic	sky	row	
+run	tennis	table_tennis	box	shoot	volleyball	baseball	gymnastic	sky	row
 classical	jazz_blues	folk	pop	dance	electronic
 [33mQuery Graph success.[0m
 swim	cycle	football	volleyball	baseball	gymnastic	sky	ice_skating	marathon	surf
 classical	folk	rap	electronic
 [33mQuery Graph success.[0m
-basketball	football	tennis	table_tennis	box	shoot	baseball	gymnastic	sky	marathon	row	
-jazz_blues	folk	pop	rock	
+basketball	football	tennis	table_tennis	box	shoot	baseball	gymnastic	sky	marathon	row
+jazz_blues	folk	pop	rock
 [33mQuery Graph success.[0m
 swim	shoot	baseball	sky	marathon	row	surf
-classical	jazz_blues	folk	pop	rock	rap	
+classical	jazz_blues	folk	pop	rock	rap
 [33mQuery Graph success.[0m
 swim	box	baseball	gymnastic	sky	surf
-classical	pop	rock	dance	rap	
+classical	pop	rock	dance	rap
 [33mQuery Graph success.[0m
-run	cycle	basketball	tennis	table_tennis	box	ice_skating	marathon	
+run	cycle	basketball	tennis	table_tennis	box	ice_skating	marathon
 classical	folk	rap	electronic
 [33mQuery Graph success.[0m
 swim	cycle	table_tennis	box	shoot	volleyball	baseball	sky	ice_skating	marathon	row	surf
-classical	jazz_blues	folk	pop	rock	rap	
+classical	jazz_blues	folk	pop	rock	rap
 [33mQuery Graph success.[0m
-swim	tennis	table_tennis	box	baseball	sky	row	
-classical	dance	
+swim	tennis	table_tennis	box	baseball	sky	row
+classical	dance
 [33mQuery Graph success.[0m
-swim	cycle	basketball	tennis	table_tennis	volleyball	gymnastic	sky	row	
-classical	rap	
+swim	cycle	basketball	tennis	table_tennis	volleyball	gymnastic	sky	row
+classical	rap
 [33mQuery Graph success.[0m
 cycle	football	tennis	table_tennis	box	gymnastic	sky	marathon	surf
 jazz_blues	dance	rap	electronic
@@ -565,176 +565,176 @@ jazz_blues	dance	rap	electronic
 basketball	football	tennis	shoot	baseball	gymnastic	marathon	row	surf
 classical	folk	pop	rock	electronic
 [33mQuery Graph success.[0m
-run	cycle	football	tennis	box	shoot	volleyball	baseball	
+run	cycle	football	tennis	box	shoot	volleyball	baseball
 pop	dance	electronic
 [33mQuery Graph success.[0m
-swim	cycle	basketball	tennis	table_tennis	box	gymnastic	sky	marathon	row	
-classical	jazz_blues	folk	pop	rock	
+swim	cycle	basketball	tennis	table_tennis	box	gymnastic	sky	marathon	row
+classical	jazz_blues	folk	pop	rock
 [33mQuery Graph success.[0m
-swim	cycle	basketball	football	tennis	volleyball	baseball	ice_skating	marathon	row	
-classical	jazz_blues	folk	pop	rap	
+swim	cycle	basketball	football	tennis	volleyball	baseball	ice_skating	marathon	row
+classical	jazz_blues	folk	pop	rap
 [33mQuery Graph success.[0m
-swim	run	table_tennis	volleyball	sky	
-classical	jazz_blues	folk	dance	
+swim	run	table_tennis	volleyball	sky
+classical	jazz_blues	folk	dance
 [33mQuery Graph success.[0m
 swim	cycle	box	shoot	baseball	gymnastic	row	surf
 classical	folk	dance	rap	electronic
 [33mQuery Graph success.[0m
-swim	run	cycle	basketball	football	table_tennis	box	shoot	volleyball	gymnastic	ice_skating	row	
+swim	run	cycle	basketball	football	table_tennis	box	shoot	volleyball	gymnastic	ice_skating	row
 jazz_blues	rock	dance	electronic
 [33mQuery Graph success.[0m
 run	cycle	basketball	football	box	baseball	gymnastic	sky	ice_skating	row	surf
 classical	jazz_blues	folk	dance	electronic
 [33mQuery Graph success.[0m
 swim	run	cycle	basketball	tennis	table_tennis	baseball	ice_skating	row	surf
-jazz_blues	folk	pop	dance	rap	
+jazz_blues	folk	pop	dance	rap
 [33mQuery Graph success.[0m
 cycle	basketball	tennis	table_tennis	box	baseball	gymnastic	ice_skating	surf
-classical	folk	pop	rap	
+classical	folk	pop	rap
 [33mQuery Graph success.[0m
 basketball	football	table_tennis	shoot	volleyball	baseball	ice_skating	surf
 classical	jazz_blues	folk	pop	rock	electronic
 [33mQuery Graph success.[0m
-swim	run	football	tennis	table_tennis	shoot	baseball	sky	ice_skating	row	
+swim	run	football	tennis	table_tennis	shoot	baseball	sky	ice_skating	row
 jazz_blues	electronic
 [33mQuery Graph success.[0m
-swim	run	cycle	football	table_tennis	box	shoot	ice_skating	marathon	row	
+swim	run	cycle	football	table_tennis	box	shoot	ice_skating	marathon	row
 jazz_blues	pop	rock	electronic
 [33mQuery Graph success.[0m
 run	baseball	gymnastic	sky	ice_skating	marathon	row	surf
-classical	pop	rock	dance	rap	
+classical	pop	rock	dance	rap
 [33mQuery Graph success.[0m
 swim	run	cycle	tennis	shoot	volleyball	baseball	sky	ice_skating	surf
 
 [33mQuery Graph success.[0m
 run	cycle	football	tennis	shoot	baseball	gymnastic	sky	ice_skating	marathon	row	surf
-folk	rap	
+folk	rap
 [33mQuery Graph success.[0m
-football	tennis	volleyball	gymnastic	sky	ice_skating	row	
+football	tennis	volleyball	gymnastic	sky	ice_skating	row
 pop	rock	electronic
 [33mQuery Graph success.[0m
 run	basketball	table_tennis	box	shoot	volleyball	gymnastic	sky	ice_skating	row	surf
 classical	folk	pop	rap	electronic
 [33mQuery Graph success.[0m
 basketball	tennis	box	gymnastic	sky	marathon	surf
-classical	rap	
+classical	rap
 [33mQuery Graph success.[0m
 swim	cycle	football	gymnastic	ice_skating	row	surf
 jazz_blues	rock	electronic
 [33mQuery Graph success.[0m
 swim	run	cycle	football	tennis	table_tennis	box	sky	row	surf
-jazz_blues	pop	rock	rap	
+jazz_blues	pop	rock	rap
 [33mQuery Graph success.[0m
-swim	run	cycle	basketball	football	box	shoot	ice_skating	marathon	row	
-jazz_blues	pop	dance	rap	
+swim	run	cycle	basketball	football	box	shoot	ice_skating	marathon	row
+jazz_blues	pop	dance	rap
 [33mQuery Graph success.[0m
 swim	run	tennis	gymnastic	sky	ice_skating	surf
-classical	jazz_blues	pop	rap	
+classical	jazz_blues	pop	rap
 [33mQuery Graph success.[0m
-basketball	football	table_tennis	volleyball	
+basketball	football	table_tennis	volleyball
 jazz_blues	folk	pop	rock	dance	electronic
 [33mQuery Graph success.[0m
 swim	tennis	shoot	baseball	gymnastic	sky	row	surf
-classical	folk	pop	dance	
+classical	folk	pop	dance
 [33mQuery Graph success.[0m
-football	tennis	shoot	volleyball	gymnastic	row	
+football	tennis	shoot	volleyball	gymnastic	row
 jazz_blues	rock	rap	electronic
 [33mQuery Graph success.[0m
 swim	football	tennis	table_tennis	shoot	marathon	surf
-jazz_blues	folk	rock	dance	rap	
+jazz_blues	folk	rock	dance	rap
 [33mQuery Graph success.[0m
-swim	cycle	football	tennis	table_tennis	box	shoot	volleyball	marathon	row	
-jazz_blues	rap	
+swim	cycle	football	tennis	table_tennis	box	shoot	volleyball	marathon	row
+jazz_blues	rap
 [33mQuery Graph success.[0m
 cycle	tennis	box	volleyball	surf
 folk	rock	dance	electronic
 [33mQuery Graph success.[0m
-swim	run	basketball	football	tennis	table_tennis	box	marathon	row	
+swim	run	basketball	football	tennis	table_tennis	box	marathon	row
 classical	jazz_blues	rock	dance	electronic
 [33mQuery Graph success.[0m
 swim	basketball	tennis	table_tennis	box	shoot	gymnastic	ice_skating	row	surf
 jazz_blues	pop	rock	dance	rap	electronic
 [33mQuery Graph success.[0m
-swim	cycle	basketball	tennis	table_tennis	volleyball	sky	ice_skating	row	
+swim	cycle	basketball	tennis	table_tennis	volleyball	sky	ice_skating	row
 classical	dance	electronic
 [33mQuery Graph success.[0m
 run	cycle	basketball	football	shoot	volleyball	sky	surf
 classical	jazz_blues	dance	electronic
 [33mQuery Graph success.[0m
 cycle	basketball	box	shoot	baseball	sky	row	surf
-pop	rock	dance	rap	
+pop	rock	dance	rap
 [33mQuery Graph success.[0m
-swim	cycle	basketball	football	tennis	volleyball	baseball	gymnastic	
+swim	cycle	basketball	football	tennis	volleyball	baseball	gymnastic
 jazz_blues	folk	pop	rock	dance	rap	electronic
 [33mQuery Graph success.[0m
-swim	basketball	football	table_tennis	shoot	baseball	sky	marathon	
+swim	basketball	football	table_tennis	shoot	baseball	sky	marathon
 classical	jazz_blues	rock	electronic
 [33mQuery Graph success.[0m
-swim	run	table_tennis	shoot	baseball	gymnastic	
-classical	jazz_blues	rock	dance	
+swim	run	table_tennis	shoot	baseball	gymnastic
+classical	jazz_blues	rock	dance
 [33mQuery Graph success.[0m
 swim	cycle	basketball	tennis	table_tennis	box	shoot	volleyball	marathon	surf
-classical	pop	rap	
+classical	pop	rap
 [33mQuery Graph success.[0m
 basketball	tennis	table_tennis	baseball	gymnastic	sky	marathon	surf
-rock	dance	rap	
+rock	dance	rap
 [33mQuery Graph success.[0m
 swim	cycle	basketball	football	table_tennis	shoot	volleyball	gymnastic	sky	marathon	row	surf
 pop	rock	electronic
 [33mQuery Graph success.[0m
 swim	run	cycle	basketball	tennis	box	baseball	ice_skating	surf
-classical	folk	rock	
+classical	folk	rock
 [33mQuery Graph success.[0m
 run	basketball	box	shoot	volleyball	baseball	gymnastic	marathon	row	surf
-classical	folk	rock	dance	
+classical	folk	rock	dance
 [33mQuery Graph success.[0m
-run	cycle	football	box	volleyball	ice_skating	marathon	row	
+run	cycle	football	box	volleyball	ice_skating	marathon	row
 classical	pop	rock	electronic
 [33mQuery Graph success.[0m
 swim	cycle	football	tennis	table_tennis	box	baseball	gymnastic	row	surf
 folk	pop	rock	electronic
 [33mQuery Graph success.[0m
 run	basketball	tennis	table_tennis	gymnastic	sky	marathon	surf
-jazz_blues	rock	dance	rap	
+jazz_blues	rock	dance	rap
 [33mQuery Graph success.[0m
 swim	cycle	basketball	table_tennis	baseball	gymnastic	sky	ice_skating	row	surf
-jazz_blues	folk	pop	rap	
+jazz_blues	folk	pop	rap
 [33mQuery Graph success.[0m
-swim	run	cycle	basketball	volleyball	baseball	gymnastic	row	
+swim	run	cycle	basketball	volleyball	baseball	gymnastic	row
 classical	jazz_blues	rock	rap	electronic
 [33mQuery Graph success.[0m
 swim	cycle	basketball	football	table_tennis	box	volleyball	sky	ice_skating	marathon	surf
 classical	rock	dance	electronic
 [33mQuery Graph success.[0m
-cycle	football	sky	ice_skating	marathon	row	
+cycle	football	sky	ice_skating	marathon	row
 folk	pop	rock	electronic
 [33mQuery Graph success.[0m
-run	cycle	basketball	football	table_tennis	box	shoot	volleyball	baseball	gymnastic	sky	ice_skating	
+run	cycle	basketball	football	table_tennis	box	shoot	volleyball	baseball	gymnastic	sky	ice_skating
 classical	jazz_blues	rock	electronic
 [33mQuery Graph success.[0m
 swim	run	cycle	basketball	football	table_tennis	gymnastic	sky	ice_skating	marathon	row	surf
 classical	dance	rap	electronic
 [33mQuery Graph success.[0m
-run	cycle	basketball	tennis	volleyball	ice_skating	marathon	
-classical	jazz_blues	folk	pop	rock	
+run	cycle	basketball	tennis	volleyball	ice_skating	marathon
+classical	jazz_blues	folk	pop	rock
 [33mQuery Graph success.[0m
-swim	run	basketball	football	tennis	table_tennis	box	volleyball	gymnastic	sky	ice_skating	marathon	
+swim	run	basketball	football	tennis	table_tennis	box	volleyball	gymnastic	sky	ice_skating	marathon
 jazz_blues	rock	dance	rap	electronic
 [33mQuery Graph success.[0m
 swim	run	cycle	tennis	shoot	volleyball	gymnastic	row	surf
-classical	dance	
+classical	dance
 [33mQuery Graph success.[0m
-cycle	table_tennis	box	ice_skating	
+cycle	table_tennis	box	ice_skating
 classical	jazz_blues	pop	rock	dance	rap	electronic
 [33mQuery Graph success.[0m
-swim	run	cycle	tennis	box	sky	ice_skating	row	
-dance	rap	
+swim	run	cycle	tennis	box	sky	ice_skating	row
+dance	rap
 [33mQuery Graph success.[0m
 swim	run	cycle	football	box	shoot	marathon	row	surf
-classical	jazz_blues	folk	dance	rap	
+classical	jazz_blues	folk	dance	rap
 [33mQuery Graph success.[0m
 swim	tennis	table_tennis	box	shoot	volleyball	ice_skating	marathon	row	surf
-dance	
+dance
 [33mQuery Graph success.[0m
 swim	cycle	table_tennis	box	shoot	sky	marathon	surf
 pop	electronic
@@ -742,28 +742,28 @@ pop	electronic
 swim	basketball	football	tennis	baseball	ice_skating	row	surf
 classical	folk	pop	rock	dance	rap	electronic
 [33mQuery Graph success.[0m
-cycle	basketball	football	tennis	table_tennis	box	shoot	volleyball	sky	ice_skating	row	
-classical	jazz_blues	dance	
+cycle	basketball	football	tennis	table_tennis	box	shoot	volleyball	sky	ice_skating	row
+classical	jazz_blues	dance
 [33mQuery Graph success.[0m
 swim	run	basketball	tennis	table_tennis	shoot	sky	ice_skating	marathon	row	surf
-pop	rock	dance	
+pop	rock	dance
 [33mQuery Graph success.[0m
-swim	run	cycle	football	gymnastic	marathon	row	
+swim	run	cycle	football	gymnastic	marathon	row
 jazz_blues	folk	dance	electronic
 [33mQuery Graph success.[0m
-swim	run	cycle	basketball	tennis	table_tennis	volleyball	gymnastic	ice_skating	row	
-classical	jazz_blues	folk	dance	
+swim	run	cycle	basketball	tennis	table_tennis	volleyball	gymnastic	ice_skating	row
+classical	jazz_blues	folk	dance
 [33mQuery Graph success.[0m
 run	cycle	table_tennis	box	shoot	gymnastic	sky	row	surf
-classical	jazz_blues	folk	rock	dance	rap	
+classical	jazz_blues	folk	rock	dance	rap
 [33mQuery Graph success.[0m
 cycle	tennis	table_tennis	box	shoot	sky	marathon	surf
-classical	jazz_blues	pop	rock	dance	
+classical	jazz_blues	pop	rock	dance
 [33mQuery Graph success.[0m
 cycle	basketball	football	tennis	table_tennis	volleyball	sky	marathon	row	surf
 jazz_blues	folk	rock	rap	electronic
 [33mQuery Graph success.[0m
-cycle	tennis	table_tennis	volleyball	baseball	gymnastic	ice_skating	row	
+cycle	tennis	table_tennis	volleyball	baseball	gymnastic	ice_skating	row
 rock	electronic
 [33mQuery Graph success.[0m
 run	cycle	basketball	tennis	volleyball	sky	marathon	surf
@@ -772,22 +772,22 @@ jazz_blues	folk	dance	rap	electronic
 swim	cycle	table_tennis	box	volleyball	gymnastic	marathon	row	surf
 dance	rap	electronic
 [33mQuery Graph success.[0m
-run	tennis	table_tennis	box	shoot	sky	ice_skating	marathon	
-jazz_blues	folk	rock	dance	rap	
+run	tennis	table_tennis	box	shoot	sky	ice_skating	marathon
+jazz_blues	folk	rock	dance	rap
 [33mQuery Graph success.[0m
 run	basketball	football	volleyball	ice_skating	surf
-rock	
+rock
 [33mQuery Graph success.[0m
-swim	basketball	volleyball	baseball	gymnastic	ice_skating	
+swim	basketball	volleyball	baseball	gymnastic	ice_skating
 folk	pop	dance	electronic
 [33mQuery Graph success.[0m
 run	basketball	football	tennis	table_tennis	box	shoot	baseball	sky	ice_skating	marathon	row	surf
 classical	pop	dance	rap	electronic
 [33mQuery Graph success.[0m
 run	football	table_tennis	box	volleyball	baseball	ice_skating	marathon	row	surf
-classical	jazz_blues	pop	
+classical	jazz_blues	pop
 [33mQuery Graph success.[0m
-cycle	basketball	football	tennis	table_tennis	shoot	gymnastic	sky	ice_skating	marathon	row	
+cycle	basketball	football	tennis	table_tennis	shoot	gymnastic	sky	ice_skating	marathon	row
 classical	jazz_blues	folk	rock	rap	electronic
 [33mQuery Graph success.[0m
 swim	cycle	shoot	volleyball	gymnastic	row	surf
@@ -796,29 +796,29 @@ folk	pop	dance	electronic
 swim	run	football	table_tennis	box	volleyball	baseball	gymnastic	sky	row	surf
 classical	pop	electronic
 [33mQuery Graph success.[0m
-swim	tennis	table_tennis	volleyball	gymnastic	ice_skating	marathon	row	
-jazz_blues	rock	
+swim	tennis	table_tennis	volleyball	gymnastic	ice_skating	marathon	row
+jazz_blues	rock
 [33mQuery Graph success.[0m
 swim	run	football	tennis	volleyball	baseball	gymnastic	sky	marathon	surf
 folk	dance	rap	electronic
 [33mQuery Graph success.[0m
-basketball	football	tennis	table_tennis	box	shoot	gymnastic	sky	
+basketball	football	tennis	table_tennis	box	shoot	gymnastic	sky
 classical	jazz_blues	pop	rock	electronic
 [33mQuery Graph success.[0m
-swim	run	cycle	basketball	football	tennis	table_tennis	box	shoot	volleyball	gymnastic	ice_skating	marathon	row	
-jazz_blues	folk	dance	
+swim	run	cycle	basketball	football	tennis	table_tennis	box	shoot	volleyball	gymnastic	ice_skating	marathon	row
+jazz_blues	folk	dance
 [33mQuery Graph success.[0m
-run	baseball	gymnastic	sky	ice_skating	marathon	row	
-classical	jazz_blues	folk	pop	rap	
+run	baseball	gymnastic	sky	ice_skating	marathon	row
+classical	jazz_blues	folk	pop	rap
 [33mQuery Graph success.[0m
 swim	cycle	tennis	box	shoot	gymnastic	sky	surf
 classical	jazz_blues	folk	rock	dance	electronic
 [33mQuery Graph success.[0m
-swim	run	cycle	football	tennis	shoot	volleyball	baseball	sky	marathon	
+swim	run	cycle	football	tennis	shoot	volleyball	baseball	sky	marathon
 classical	jazz_blues	folk	pop	dance	rap	electronic
 [33mQuery Graph success.[0m
-swim	run	cycle	basketball	tennis	box	shoot	volleyball	baseball	marathon	
-folk	pop	
+swim	run	cycle	basketball	tennis	box	shoot	volleyball	baseball	marathon
+folk	pop
 [33mQuery Graph success.[0m
 run	basketball	football	tennis	table_tennis	box	baseball	sky	ice_skating	marathon	row	surf
 classical	jazz_blues	rap	electronic
@@ -826,34 +826,34 @@ classical	jazz_blues	rap	electronic
 swim	basketball	table_tennis	shoot	volleyball	baseball	gymnastic	sky	marathon	row	surf
 classical	jazz_blues	folk	pop	rap	electronic
 [33mQuery Graph success.[0m
-swim	run	cycle	football	baseball	gymnastic	ice_skating	row	
+swim	run	cycle	football	baseball	gymnastic	ice_skating	row
 jazz_blues	pop	dance	electronic
 [33mQuery Graph success.[0m
-swim	box	volleyball	ice_skating	row	
+swim	box	volleyball	ice_skating	row
 classical	jazz_blues	dance	rap	electronic
 [33mQuery Graph success.[0m
-run	cycle	football	tennis	table_tennis	box	volleyball	sky	ice_skating	marathon	
-classical	folk	pop	rock	dance	
+run	cycle	football	tennis	table_tennis	box	volleyball	sky	ice_skating	marathon
+classical	folk	pop	rock	dance
 [33mQuery Graph success.[0m
 swim	basketball	tennis	table_tennis	box	shoot	baseball	gymnastic	ice_skating	row	surf
-rock	dance	
+rock	dance
 [33mQuery Graph success.[0m
 cycle	table_tennis	box	volleyball	baseball	ice_skating	marathon	row	surf
 folk	rock	dance	electronic
 [33mQuery Graph success.[0m
 swim	run	cycle	basketball	football	gymnastic	marathon	row	surf
-classical	jazz_blues	rap	
+classical	jazz_blues	rap
 [33mQuery Graph success.[0m
-cycle	football	baseball	gymnastic	sky	row	
+cycle	football	baseball	gymnastic	sky	row
 classical	jazz_blues	pop	rock	electronic
 [33mQuery Graph success.[0m
-cycle	basketball	tennis	table_tennis	shoot	volleyball	baseball	sky	marathon	
+cycle	basketball	tennis	table_tennis	shoot	volleyball	baseball	sky	marathon
 pop	rock	dance	electronic
 [33mQuery Graph success.[0m
 swim	cycle	football	tennis	table_tennis	volleyball	gymnastic	sky	marathon	surf
-pop	rock	rap	
+pop	rock	rap
 [33mQuery Graph success.[0m
-swim	basketball	football	box	shoot	baseball	sky	ice_skating	marathon	
+swim	basketball	football	box	shoot	baseball	sky	ice_skating	marathon
 folk	rock	dance	rap	electronic
 [33mQuery Graph success.[0m
 football	table_tennis	volleyball	baseball	marathon	surf
@@ -862,101 +862,101 @@ classical	pop	rap	electronic
 swim	run	cycle	football	box	shoot	volleyball	baseball	gymnastic	sky	marathon	surf
 classical	folk	rock	rap	electronic
 [33mQuery Graph success.[0m
-swim	run	basketball	tennis	table_tennis	volleyball	baseball	sky	ice_skating	marathon	
+swim	run	basketball	tennis	table_tennis	volleyball	baseball	sky	ice_skating	marathon
 jazz_blues	rock	rap	electronic
 [33mQuery Graph success.[0m
-swim	cycle	tennis	shoot	volleyball	baseball	ice_skating	marathon	
+swim	cycle	tennis	shoot	volleyball	baseball	ice_skating	marathon
 pop	rock	electronic
 [33mQuery Graph success.[0m
-swim	run	basketball	football	tennis	table_tennis	box	volleyball	sky	ice_skating	row	
-jazz_blues	rap	
+swim	run	basketball	football	tennis	table_tennis	box	volleyball	sky	ice_skating	row
+jazz_blues	rap
 [33mQuery Graph success.[0m
-cycle	basketball	table_tennis	box	gymnastic	sky	
-jazz_blues	folk	rock	rap	
+cycle	basketball	table_tennis	box	gymnastic	sky
+jazz_blues	folk	rock	rap
 [33mQuery Graph success.[0m
-cycle	football	tennis	volleyball	ice_skating	marathon	
+cycle	football	tennis	volleyball	ice_skating	marathon
 jazz_blues	folk	pop	rock	electronic
 [33mQuery Graph success.[0m
 swim	cycle	basketball	football	table_tennis	volleyball	gymnastic	ice_skating	marathon	surf
 classical	folk	pop	dance	electronic
 [33mQuery Graph success.[0m
 run	cycle	basketball	tennis	box	baseball	gymnastic	sky	ice_skating	marathon	surf
-classical	rock	dance	
+classical	rock	dance
 [33mQuery Graph success.[0m
-football	tennis	table_tennis	box	shoot	volleyball	gymnastic	sky	marathon	
+football	tennis	table_tennis	box	shoot	volleyball	gymnastic	sky	marathon
 folk	pop	rap	electronic
 [33mQuery Graph success.[0m
 run	cycle	table_tennis	ice_skating	row	surf
 classical	jazz_blues	folk	dance	electronic
 [33mQuery Graph success.[0m
 basketball	football	tennis	table_tennis	baseball	sky	ice_skating	marathon	row	surf
-classical	folk	pop	rap	
+classical	folk	pop	rap
 [33mQuery Graph success.[0m
-swim	run	football	tennis	box	shoot	volleyball	baseball	ice_skating	marathon	row	
+swim	run	football	tennis	box	shoot	volleyball	baseball	ice_skating	marathon	row
 jazz_blues	rock	rap	electronic
 [33mQuery Graph success.[0m
 swim	cycle	football	table_tennis	box	volleyball	sky	ice_skating	marathon	surf
-jazz_blues	folk	rock	dance	
+jazz_blues	folk	rock	dance
 [33mQuery Graph success.[0m
 basketball	table_tennis	volleyball	sky	ice_skating	row	surf
-folk	rock	dance	rap	
+folk	rock	dance	rap
 [33mQuery Graph success.[0m
 swim	cycle	football	tennis	box	volleyball	sky	surf
-pop	rock	rap	
+pop	rock	rap
 [33mQuery Graph success.[0m
-swim	basketball	box	shoot	volleyball	baseball	
-jazz_blues	folk	pop	rock	
+swim	basketball	box	shoot	volleyball	baseball
+jazz_blues	folk	pop	rock
 [33mQuery Graph success.[0m
 swim	tennis	table_tennis	baseball	ice_skating	marathon	row	surf
 rap	electronic
 [33mQuery Graph success.[0m
-swim	run	tennis	shoot	volleyball	baseball	gymnastic	row	
+swim	run	tennis	shoot	volleyball	baseball	gymnastic	row
 jazz_blues	folk	pop	rap	electronic
 [33mQuery Graph success.[0m
-swim	run	cycle	basketball	box	shoot	volleyball	baseball	gymnastic	ice_skating	
+swim	run	cycle	basketball	box	shoot	volleyball	baseball	gymnastic	ice_skating
 
 [33mQuery Graph success.[0m
-swim	basketball	box	shoot	volleyball	baseball	gymnastic	ice_skating	
+swim	basketball	box	shoot	volleyball	baseball	gymnastic	ice_skating
 jazz_blues	electronic
 [33mQuery Graph success.[0m
-swim	run	tennis	baseball	gymnastic	ice_skating	marathon	
-classical	folk	pop	rap	
+swim	run	tennis	baseball	gymnastic	ice_skating	marathon
+classical	folk	pop	rap
 [33mQuery Graph success.[0m
-football	tennis	table_tennis	box	shoot	volleyball	ice_skating	row	
+football	tennis	table_tennis	box	shoot	volleyball	ice_skating	row
 folk	dance	electronic
 [33mQuery Graph success.[0m
-swim	cycle	basketball	tennis	table_tennis	box	baseball	ice_skating	
-classical	jazz_blues	pop	rock	
+swim	cycle	basketball	tennis	table_tennis	box	baseball	ice_skating
+classical	jazz_blues	pop	rock
 [33mQuery Graph success.[0m
 basketball	shoot	volleyball	baseball	gymnastic	sky	ice_skating	marathon	row	surf
-classical	jazz_blues	folk	pop	dance	
+classical	jazz_blues	folk	pop	dance
 [33mQuery Graph success.[0m
 swim	cycle	tennis	table_tennis	box	volleyball	ice_skating	marathon	row	surf
 classical	jazz_blues	pop	dance	rap	electronic
 [33mQuery Graph success.[0m
-swim	cycle	shoot	volleyball	baseball	gymnastic	row	
-classical	pop	rock	dance	
+swim	cycle	shoot	volleyball	baseball	gymnastic	row
+classical	pop	rock	dance
 [33mQuery Graph success.[0m
 cycle	basketball	tennis	box	shoot	baseball	gymnastic	row	surf
 classical	folk	pop	rock	dance	rap	electronic
 [33mQuery Graph success.[0m
-cycle	basketball	table_tennis	gymnastic	sky	marathon	row	
+cycle	basketball	table_tennis	gymnastic	sky	marathon	row
 classical	pop	dance	rap	electronic
 [33mQuery Graph success.[0m
-swim	run	cycle	football	tennis	box	shoot	baseball	gymnastic	sky	marathon	
-pop	rock	
+swim	run	cycle	football	tennis	box	shoot	baseball	gymnastic	sky	marathon
+pop	rock
 [33mQuery Graph success.[0m
-swim	cycle	basketball	football	tennis	table_tennis	box	volleyball	baseball	gymnastic	marathon	row	
+swim	cycle	basketball	football	tennis	table_tennis	box	volleyball	baseball	gymnastic	marathon	row
 classical	folk	pop	rock	rap	electronic
 [33mQuery Graph success.[0m
-swim	table_tennis	gymnastic	ice_skating	marathon	row	
-classical	jazz_blues	folk	pop	rock	dance	
+swim	table_tennis	gymnastic	ice_skating	marathon	row
+classical	jazz_blues	folk	pop	rock	dance
 [33mQuery Graph success.[0m
-swim	cycle	football	tennis	table_tennis	box	volleyball	baseball	ice_skating	row	
+swim	cycle	football	tennis	table_tennis	box	volleyball	baseball	ice_skating	row
 jazz_blues	folk	pop	electronic
 [33mQuery Graph success.[0m
 swim	run	basketball	gymnastic	ice_skating	surf
-jazz_blues	folk	dance	
+jazz_blues	folk	dance
 [33mQuery Graph success.[0m
 swim	football	table_tennis	box	volleyball	gymnastic	row	surf
 classical	jazz_blues	folk	pop	rap	electronic
@@ -964,38 +964,38 @@ classical	jazz_blues	folk	pop	rap	electronic
 run	basketball	football	tennis	table_tennis	box	shoot	volleyball	baseball	surf
 classical	jazz_blues	folk	pop	dance	rap	electronic
 [33mQuery Graph success.[0m
-swim	cycle	basketball	football	tennis	table_tennis	box	volleyball	baseball	gymnastic	sky	ice_skating	
-classical	jazz_blues	folk	rap	
+swim	cycle	basketball	football	tennis	table_tennis	box	volleyball	baseball	gymnastic	sky	ice_skating
+classical	jazz_blues	folk	rap
 [33mQuery Graph success.[0m
 swim	run	box	volleyball	gymnastic	ice_skating	marathon	row	surf
 folk	pop	rock	electronic
 [33mQuery Graph success.[0m
 run	basketball	volleyball	baseball	gymnastic	sky	ice_skating	surf
-classical	folk	pop	dance	rap	
+classical	folk	pop	dance	rap
 [33mQuery Graph success.[0m
-run	cycle	tennis	shoot	baseball	ice_skating	marathon	
-rock	dance	rap	
+run	cycle	tennis	shoot	baseball	ice_skating	marathon
+rock	dance	rap
 [33mQuery Graph success.[0m
 run	football	baseball	gymnastic	marathon	row	surf
-classical	jazz_blues	folk	
+classical	jazz_blues	folk
 [33mQuery Graph success.[0m
-run	cycle	basketball	tennis	table_tennis	box	shoot	volleyball	sky	ice_skating	
+run	cycle	basketball	tennis	table_tennis	box	shoot	volleyball	sky	ice_skating
 classical	jazz_blues	folk	pop	dance	rap	electronic
 [33mQuery Graph success.[0m
-swim	basketball	football	table_tennis	box	ice_skating	
+swim	basketball	football	table_tennis	box	ice_skating
 pop	rock	rap	electronic
 [33mQuery Graph success.[0m
-run	cycle	football	box	shoot	gymnastic	ice_skating	row	
-classical	pop	rap	
+run	cycle	football	box	shoot	gymnastic	ice_skating	row
+classical	pop	rap
 [33mQuery Graph success.[0m
-swim	cycle	box	gymnastic	ice_skating	marathon	
+swim	cycle	box	gymnastic	ice_skating	marathon
 pop	dance	rap	electronic
 [33mQuery Graph success.[0m
 swim	run	cycle	tennis	table_tennis	volleyball	baseball	gymnastic	sky	surf
 jazz_blues	rock	dance	rap	electronic
 [33mQuery Graph success.[0m
 swim	basketball	tennis	table_tennis	shoot	volleyball	sky	ice_skating	surf
-classical	jazz_blues	rap	
+classical	jazz_blues	rap
 [33mQuery Graph success.[0m
 swim	cycle	basketball	tennis	box	baseball	gymnastic	marathon	surf
 folk	pop	rock	dance	rap	electronic
@@ -1003,17 +1003,17 @@ folk	pop	rock	dance	rap	electronic
 swim	run	football	box	shoot	volleyball	gymnastic	ice_skating	row	surf
 jazz_blues	pop	rock	dance	electronic
 [33mQuery Graph success.[0m
-swim	run	basketball	table_tennis	box	gymnastic	ice_skating	
-jazz_blues	pop	rock	dance	
+swim	run	basketball	table_tennis	box	gymnastic	ice_skating
+jazz_blues	pop	rock	dance
 [33mQuery Graph success.[0m
 swim	basketball	football	tennis	table_tennis	box	gymnastic	sky	ice_skating	marathon	row	surf
-pop	rap	
+pop	rap
 [33mQuery Graph success.[0m
 swim	run	tennis	table_tennis	box	shoot	volleyball	baseball	gymnastic	marathon	row	surf
-classical	folk	pop	dance	rap	
+classical	folk	pop	dance	rap
 [33mQuery Graph success.[0m
 swim	cycle	basketball	tennis	table_tennis	volleyball	baseball	surf
-pop	rock	
+pop	rock
 [33mQuery Graph success.[0m
 swim	cycle	shoot	baseball	gymnastic	sky	surf
 classical	pop	dance	electronic

@@ -14,8 +14,8 @@ GlobalStatus::GlobalStatus() {
     }
 };
 
-bool GlobalStatus::questionnaire() {
-    return true;
+PreferenceInterval GlobalStatus::questionnaire() {
+
 };
 
 bool GlobalStatus::modifyStatus(const STATUS_DEGREE &statusDegree, const STATUS_ENUM &statusEnum, const Interval &interval) {

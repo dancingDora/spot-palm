@@ -1,7 +1,7 @@
 //
 // Created by 陆逸凡 on 2023/4/12.
 //
-
+#pragma once
 #ifndef 旅游景点模糊推荐_TOOLS_H
 #define 旅游景点模糊推荐_TOOLS_H
 
@@ -62,8 +62,6 @@ public:
 
     friend std::ostream &operator<<(std::ostream &os, const Char<size> &s) { return os << s.content; }
 };
-//thank you teacher lin
-
 
 /*
 已知两点经纬度，计算球面距离（地球半径默认值为 6371.0 ( const_value.h EARTH_RADIUS))
@@ -299,8 +297,38 @@ public:
         empty = (!ll & !rr) || invalid;
         if (empty) ll = rr = -1;
     }
+
+    friend std::istream &operator>>(std::istream &pin, Interval interval) {
+        pin >> interval.ll >> interval.rr;
+        interval.empty = interval.ll > interval.rr;
+        return pin;
+    };
 };
-class Point{
+
+struct PreferenceInterval {
+
+    Interval *temperature;
+    Interval *visitorAmount;
+    Interval *humidity;
+    Interval *consumption;
+    Interval *distance;
+
+    friend std::istream &operator>>(std::istream &pin, PreferenceInterval preferenceInterval) {
+        for (int i = 0; i < 4; i++)
+            pin >> preferenceInterval.temperature[i];
+        for (int i = 0; i < 4; i++)
+            pin >> preferenceInterval.visitorAmount[i];
+        for (int i = 0; i < 4; i++)
+            pin >> preferenceInterval.humidity[i];
+        for (int i = 0; i < 4; i++)
+            pin >> preferenceInterval.consumption[i];
+        for (int i = 0; i < 4; i++)
+            pin >> preferenceInterval.distance[i];
+        return pin;
+    }
+};
+
+class Point {
 public:
     int pos;
     int weight;
@@ -308,14 +336,16 @@ public:
     Point *frt;
 
     Point(const int &pos, const int &weight, Point *front = NULL, Point *next = NULL)
-            :pos(pos),weight(weight),nxt(next),frt(front){};
-    ~Point(){
+            : pos(pos), weight(weight), nxt(next), frt(front) {};
+
+    ~Point() {
         delete nxt;
         delete frt;
     }
 
 };
-class Axis{
+
+class Axis {
 
 private:
 
@@ -323,7 +353,7 @@ private:
 
 public:
 
-    Axis():head(nullptr){};
+    Axis() : head(nullptr) {};
 
     Axis &operator+(const Interval &interval) {
         insert(interval);
@@ -337,23 +367,23 @@ public:
 
     Axis operator[](const Interval &interval) const {
         Axis *res = copyAxis(*this);
-        Point *ptr =res->find(interval.ll);
+        Point *ptr = res->find(interval.ll);
         res->head = ptr;
-        ptr->frt = new Point(0,0,NULL,NULL);
-        while(ptr->nxt && ptr->nxt->pos <= interval.rr) {
+        ptr->frt = new Point(0, 0, NULL, NULL);
+        while (ptr->nxt && ptr->nxt->pos <= interval.rr) {
             ptr = ptr->nxt;
         }
-        if(ptr->nxt)
+        if (ptr->nxt)
             ptr->nxt = nullptr;
         return *res;
     }
 
     int operator[](const int &pos) const {
         Point *ptr = head;
-        while(ptr) {
-            if(ptr->pos == pos) return ptr->weight;
-            else if(ptr->pos < pos) ptr = ptr->nxt;
-            else if(ptr->pos > pos) return ptr->frt->weight;
+        while (ptr) {
+            if (ptr->pos == pos) return ptr->weight;
+            else if (ptr->pos < pos) ptr = ptr->nxt;
+            else if (ptr->pos > pos) return ptr->frt->weight;
         }
         return 0;
     }
@@ -369,11 +399,11 @@ public:
     }
 
     int highest() {
-        if(!head) return -1;
+        if (!head) return -1;
         Point *ptr = head;
         int weight = head->weight;
-        while(ptr->nxt) {
-            if(ptr->weight > weight) weight = ptr->weight;
+        while (ptr->nxt) {
+            if (ptr->weight > weight) weight = ptr->weight;
             ptr = ptr->nxt;
         }
         return weight;
@@ -381,18 +411,18 @@ public:
 
 private:
 
-    Point* find(const int &pos) {
+    Point *find(const int &pos) {
         Point *ptr = head;
-        while(ptr) {
-            if(ptr->pos == pos) return ptr;
-            if(ptr->pos < pos)
-                if(ptr->nxt)ptr = ptr->nxt;
+        while (ptr) {
+            if (ptr->pos == pos) return ptr;
+            if (ptr->pos < pos)
+                if (ptr->nxt)ptr = ptr->nxt;
                 else {
                     Point *newPoint = new Point(pos, 0, ptr, nullptr);
                     ptr->nxt = newPoint;
                     return newPoint;
                 }
-            else if(ptr->pos > pos) {
+            else if (ptr->pos > pos) {
                 Point *newPoint = new Point(pos, ptr->frt->weight, ptr->frt, ptr);
                 ptr->frt->nxt = newPoint;
                 ptr->frt = newPoint;
@@ -403,34 +433,34 @@ private:
     }
 
     bool insert(const Interval &interval) {
-        if(interval.empty) return false;
-        if(head == nullptr) {
+        if (interval.empty) return false;
+        if (head == nullptr) {
             head = new Point(interval.ll, 1, nullptr, nullptr);
             head->nxt = new Point(interval.rr, 0, head, nullptr);
             return true;
         }
-        Point* start = find(interval.ll);
-        Point* end = find(interval.rr);
-        for(Point* it = start; it != end; it = it->nxt)
+        Point *start = find(interval.ll);
+        Point *end = find(interval.rr);
+        for (Point *it = start; it != end; it = it->nxt)
             it->weight++;
         return true;
     }
 
     bool remove(const Interval &interval) {
-        if(interval.empty) return false;
-        Point* start = find(interval.ll);
-        Point* end = find(interval.rr);
-        for(Point* it = start; it != end; it = it->nxt)
+        if (interval.empty) return false;
+        Point *start = find(interval.ll);
+        Point *end = find(interval.rr);
+        for (Point *it = start; it != end; it = it->nxt)
             it->weight--;
         return true;
     }
 
-    Axis * copyAxis(const Axis &x) const {
+    Axis *copyAxis(const Axis &x) const {
         Axis *res = new Axis();
         res->head = new Point(x.head->pos, x.head->weight);
         Point *ptrToRes = res->head;
         Point *ptr = x.head->nxt;
-        while(ptr) {
+        while (ptr) {
             Point *tmp = new Point(ptr->pos, ptr->weight);
             ptrToRes->nxt = tmp;
             tmp->frt = ptrToRes;
@@ -443,4 +473,5 @@ private:
 
 };
 
+unsigned s_to_u(string num);
 #endif //旅游景点模糊推荐_TOOLS_H

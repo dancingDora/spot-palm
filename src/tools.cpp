@@ -2,9 +2,11 @@
 // Created by 陆逸凡 on 2023/4/13.
 //
 #include "tools.h"
+
 double toRadians(double degree) {
     return degree * M_PI / 180.0;
 }
+
 double distance(double lat1, double lon1, double lat2, double lon2) {
     double dLat = toRadians(lat2 - lat1);
     double dLon = toRadians(lon2 - lon1);
@@ -15,6 +17,7 @@ double distance(double lat1, double lon1, double lat2, double lon2) {
     double distance = EARTH_RADIUS * c;
     return distance;
 }
+
 string provToS(const PROVINCE &p) {
     switch (p) {//total 34
         case Beijing :
@@ -141,9 +144,8 @@ bool help() {
     cout << "\033[36m   login -i <uid(unsigned)> -p <password(string)>\033[0m" << std::endl;
     cout << "\033[36m   logout -i <uid(unsigned)>\033[0m" << std::endl;
     cout << "\033[36m   query_profile -i <uid(unsigned)> -q <queryUID(unsigned)>\033[0m" << std::endl;
-    cout
-            << "\033[36m   modify_profile -i <uid(unsigned)> (-g) <gender(int)> (-m) <mail_address(string)> (-n_ <name(string)>\033[0m"
-            << std::endl;
+    cout << "\033[36m   modify_profile -i <uid(unsigned)> (-g) <gender(int)> (-m) <mail_address(string)> (-n_ <name(string)>\033[0m"
+         << std::endl;
     cout << "\033[36m   add_spot -n [spot name] -i [sid] -t [status temperature] -v [status visitorAmount]\033[0m"
          << std::endl;
     cout << "\033[33m            -h [status humidity] -c [status consumption] -d [status distance]\033[0m" << std::endl;
@@ -158,5 +160,19 @@ bool help() {
 
 uint32_t hashUS(const unsigned &u, const unsigned &s) {
     uint32_t res = (u << 16) | (s & 0x0000ffffl);
+    return res;
+}
+unsigned s_to_u(string num) {
+    int res = 0;
+    for(int i = 0; i < num.size(); i++) {
+        if(num[i] < '0' || num[i] > '9') {
+            cerr << "wrong number input.\n";
+            return 0;
+        }
+        else {
+            res *= 10;
+            res += num[i] - '0';
+        }
+    }
     return res;
 }

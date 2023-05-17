@@ -351,3 +351,8 @@ bool UserManager::modifyPrivacy(const unsigned &u, const bool &adjust) {
     users[u].privacy = adjust;
     return true;
 }
+
+bool UserManager::callQuestionnaire(const unsigned int &u) {
+
+    return true;
+}

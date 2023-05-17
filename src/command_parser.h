@@ -1,7 +1,7 @@
 //
 // Created by 陆逸凡 on 2023/3/3.
 //
-
+#pragma once
 #ifndef SPOT_PALM_COMMAND_PARSER_H
 #define SPOT_PALM_COMMAND_PARSER_H
 
@@ -10,13 +10,15 @@
 #include "user.h"
 #include "tools.h"
 
+//run as back_end
+#include <netinet/in.h>
+#include <sys/socket.h>
+
 using std::string;
 using std::cerr;
 using std::cout;
 using std::stoi;
 using std::stod;
-
-
 
 class CommandParser {
 
@@ -24,6 +26,9 @@ class CommandParser {
     SpotManager spots;
 
     PARSER_MODE MODE = SERVER;
+
+    unsigned uid;
+    string username;
 
 public:
 
@@ -35,7 +40,6 @@ public:
             cerr << "[CommandParser run] Invalid input, key.length() = 0.\n";
             return "";
         }
-
         if (key == "exit" || key == "q") return parseExit();
 //        clear : please input root password
         else if (key == "clear") return parseClear(token);
@@ -64,6 +68,57 @@ public:
             return "";
         }
         return "";
+    }
+
+    string runAsBackEnd() {
+        cout << "open back_end success.\n";
+        const int BUFFER_SIZE = 102400;
+        int slisten = socket(AF_INET, SOCK_STREAM, 0);
+
+        sockaddr_in sin;
+
+        sin.sin_family = AF_INET;
+        sin.sin_port = htons(7800);
+//        sin.sin_addr.s_addr = htonl(INADDR_ANY);
+        sin.sin_addr.s_addr = htonl(INADDR_ANY);
+        if (bind(slisten, (struct sockaddr *)&sin, sizeof(sin)) == -1) printf("bind error!");
+        printf("bind success!\n");
+        fflush(stdout);
+        if (listen(slisten, 5) == -1) {
+            printf("listen error!\n");
+            fflush(stdout);
+            exit(0);
+        }
+        printf("listen success!\n");
+        fflush(stdout);
+        int sclient;
+        sockaddr_in client_add;
+        socklen_t naddrlen = sizeof(client_add);
+        char revdata[BUFFER_SIZE], command[BUFFER_SIZE], send_result[BUFFER_SIZE];
+
+        while (1) {
+            printf("start run.\n");
+            fflush(stdout);
+            memset(command, 0, sizeof(command));
+            memset(revdata, 0, sizeof(revdata));
+            sclient = accept(slisten, (struct sockaddr *)&client_add, &naddrlen);
+            printf("socket accept success");
+            fflush(stdout);
+            if (sclient == -1) {
+                printf("Socket:Accept Error!");
+                fflush(stdout);
+                continue;
+            }
+            printf("socket accept success");
+            fflush(stdout);
+            recv(sclient, revdata, BUFFER_SIZE, 0);
+            std::cout << "recieve command: " << revdata << ", length: " << strlen(revdata) << std::endl;
+
+            std::string res = run(revdata);
+            std::cout << "return: " << res << std::endl;
+            fflush(stdout);
+            send(sclient, res.c_str(), res.length(), 0);
+        }
     }
 
 //    bool addUser(const std::string &user_name, const int &privilege,
@@ -116,8 +171,9 @@ public:
                 return "[CommandParser parseAddUser] the parameter is not completed.\n";
             }
         };
-        return users.addUser(n, v, g, m, i, p)
-               ? "\033[36mAdd user success.\033[0m\n" : "AddUser failed.\n";
+//        return users.addUser(n, v, g, m, i, p)
+//               ? "\033[36mAdd user success.\033[0m\n" : "AddUser failed.\n";
+        return users.addUser(n, v, g, m, i, p) ? "112233" : "0";
     };
 
     //    bool login(const unsigned &u, const string &p)
@@ -676,11 +732,20 @@ public:
 
     string parseModifyMode(TokenScanner &token){
         string key = token.NextToken();
-        unsigned u;
-        string p;
-        while(!key.empty()) {
-            if(u == )
+        if(key == "SERVER") {
+            if(token.NextToken() == "root_password") {
+                MODE = SERVER;
+                return "\033[36mWelcome to root.\033[0m\n";
+            }
         }
+        else if(key == "CLIENT") {
+            MODE = CLIENT;
+        }
+        else return "";
+
+        unsigned u = stoi(token.NextToken());
+        string p = token.NextToken();
+        return users.login(u, p) ? "\033[36mWelcome to client mode.\033[0m\n" : "[parseModifyMode] invalid login.\n";
     }
 
     string parseHelp() {

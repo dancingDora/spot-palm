@@ -1,6 +1,7 @@
 //
 // Created by 陆逸凡 on 2023/2/17.
 //
+#pragma once
 #ifndef 旅游景点模糊推荐_USER_H
 #define 旅游景点模糊推荐_USER_H
 
@@ -35,6 +36,8 @@ public:
     const int privilege;  //privilege  :  visitor-0 ; user-1  ; contributor-3 ; leader-7.
     int gender;           //gender     :  male-1   ; female-2; others-0.
     Character character;
+
+    GlobalStatus userStatus;
 
     vector<unsigned> historyComments; // history written commentsMap;
 
@@ -120,6 +123,8 @@ public:
     bool followUsers(const unsigned &u, const unsigned &q);
 
     bool modifyPrivacy(const unsigned &u, const bool &adjust);
+
+    bool callQuestionnaire(const unsigned &u);
 };
 
 #endif //旅游景点模糊推荐_USER_H
