@@ -23,11 +23,19 @@ class Status {
 
 public:
 
-    double temperature;//温度 1->5   cold -> hot
-    double visitorAmount;//客流量 1->5   cold -> hot
-    double humidity;//湿度 1->5   wet -> dry
-    double consumption;//平均消费 1->5   low -> high
-    double distance;//距离 1->5 short -> long
+    //Reality : for user preference
+    double temperature;
+    double visitorAmount;
+    double humidity;
+    double consumption;
+    double distance;
+
+    //Questionnaire : for public
+    unsigned _temperature;//    温度 1->n   cold -> hot
+    unsigned _visitorAmount;//  客流量 1->n   cold -> hot
+    unsigned _humidity;//       湿度 1->n   wet -> dry
+    unsigned _consumption;//    平均消费 1->n   low -> high
+    unsigned _distance;//       距离 1->n short -> long
 
     Status();
 
@@ -80,7 +88,10 @@ public:
 class Spot {
 
 public:
+    const int test1 = 1;
+    const int test2 = 2;
 
+    string image;
     Char<64> spotName;
     const int sid;
     Status status;
@@ -92,6 +103,9 @@ public:
 public:
 
     Spot();
+
+    //test for php
+    Spot(int a, int b);
 
     Spot(const string &spotNameA, const int &sidA,
          const double &t, const double &v, const double &h, const double &c, const double &d,
@@ -114,7 +128,7 @@ public:
 
     friend bool operator != (const Spot &l, const Spot &r);
 
-
+    string to_string();
 };
 
 class SpotManager {
@@ -125,7 +139,6 @@ public:
     unordered_map<string, Spot*> name_spots;
 
 //    GlobalStatus global_status;
-
 public:
 
     SpotManager();

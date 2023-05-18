@@ -60,7 +60,8 @@ public:
         else if (key == "modify_spot_palm_mode") return parseModifyMode(token);
 
         else if (key == "help") return parseHelp();
-
+        //test for php
+        else if(key == "test") return parseTestPHP();
         else {
             cerr << "[CommandParser run] Invalid key, command not found.\n";
             cout << "If you don`t know how to use spot-palm for command line,\n";
@@ -78,7 +79,7 @@ public:
         sockaddr_in sin;
 
         sin.sin_family = AF_INET;
-        sin.sin_port = htons(7800);
+        sin.sin_port = htons(7801);
 //        sin.sin_addr.s_addr = htonl(INADDR_ANY);
         sin.sin_addr.s_addr = htonl(INADDR_ANY);
         if (bind(slisten, (struct sockaddr *)&sin, sizeof(sin)) == -1) printf("bind error!");
@@ -754,6 +755,24 @@ public:
 
     string parseExit() {
         return "bye";
+    }
+
+    string parseTestPHP() {
+        vector<Spot> a;
+        Spot tmp = Spot();
+        a.push_back(tmp);
+        Spot tmp1 = Spot(2,2);
+        a.push_back(tmp1);
+        Spot tmp2 = Spot(3,3);
+        a.push_back(tmp2);
+        string res = "";
+        res += tmp.to_string();
+        res += tmp1.to_string();
+
+//        for(int i = 0; i < a.size(); i++) {
+
+
+        return res;
     }
 
 };

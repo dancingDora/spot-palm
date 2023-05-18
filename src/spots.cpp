@@ -85,9 +85,14 @@ bool Comments::addYourLike(const unsigned int &cid) {
        |    |          |     |       |
  |-----+    |          +-----+       |
  */
-Spot::Spot():NS(39.9042), WE(116.4074), province(Beijing), sid(0) {
+Spot::Spot():NS(39.9042), WE(116.4074), province(Beijing), sid(0), image("http://img3m9.ddimg.cn/12/36/1546133799-1_w_1.jpg"){
     status.visitorAmount = status.humidity = status.consumption = status.distance = status.temperature = 3;
 }
+
+Spot::Spot(int a, int b):NS(39.9042), WE(116.4074), province(Beijing), sid(0), test1(a), test2(b), image("http://img3m9.ddimg.cn/12/36/1546133799-1_w_1.jpg"){
+    status.visitorAmount = status.humidity = status.consumption = status.distance = status.temperature = 3;
+}
+
 
 Spot::Spot(const string &spotNameA, const int &sidA,
      const double &t, const double &v, const double &h, const double &c, const double &d,
@@ -119,6 +124,15 @@ ostream& operator << (ostream &SpotOut, const Spot &spot) {
     SpotOut << "in the " << provToS(spot.province) << " , " << spot.city << '\n' << '\n';
     SpotOut <<  &spot.status;
     return SpotOut;
+}
+
+string Spot::to_string() {
+    string res = "";
+    res += std::to_string(sid) + ' ' + spotName.str() + ' ';
+    res += provToS(province) + ' ' + city.str() + ' ';
+    res += image + '\n';
+    return res;
+
 }
 
 bool operator < (const Spot &l, const Spot &r) {
