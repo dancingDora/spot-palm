@@ -218,39 +218,41 @@
 //    }
 //    //cout << "hello";
 //}
-////class SpotManager;
-////class UserManager{
-////    SpotManager *spotManager;
-////    UserManager(const SpotManager *spotManager1) {
-////    }
-////};
-////
-////class SpotManager{
-////    map<unsigned, unsigned> spotMap;
-////    SpotManager(SpotManager *spotManager) {
-////        for(auto it : spotManager->spotMap)
-////            spotMap[it.first] = it.second;
-////    }
-////};
-////#include "tools.h"
 //
 //
-//
-// Created by 董绍启 on 2023/5/15.
-//
+
+#include <fstream>
 #include <iostream>
+#include "const_value.h"
+#include "tools.h"
 using namespace std;
+string nameBase[] = {
+        "GreatWall",
+        "ForbiddenCity",
+        "TerracottaWarriors",
+        "YellowMountain",
+        "Zhangjiajie",
+        "JiuzhaigouValley",
+        "LiRiverinGuilin",
+        "GulangyuIsland",
+        "MountEmei",
+        "StoneForest",
+        "TaklamakanDesert",
+        "WestLake",
+        "LijiangOldTown",
+        "MountTai",
+        "ThirteenMingTombs",
+        "QinghaiLake",
+        "BeijingHappyValley",
+        "MountYandang",
+        "MogaoCaves",
+        "BigWildGoosePagoda"
+};
 int main() {
-    cout << "           CUnit : A Unit testing framework for C.\n"
-            "           http://cunit.sourceforge.net/\n"
-            "\n"
-            "       Suite: Suite_1\n"
-            "         Test: test of spot-palm ... passed\n"
-            "\n"
-            "       --Run Summary: Type      Total     Ran  Passed  Failed\n"
-            "                      suites        1       1     1/1       0\n"
-            "                      tests         1       1       1       0\n"
-            "                      asserts       1       1       1       0";
+    for(int i = 0; i < 20; i++)
+        cout << "add_spot -n " << nameBase[i] << " -i " << i
+             << " -t " << rand() % 5 + 1 << " -v " << rand() % 5 + 1
+             << " -h " << rand() % 5 + 1 << " -c " << rand() % 5 + 1
+             << " -d " << rand() % 5 + 1 << " -p " << provToS(Beijing)
+             << " -s " << i << " -NS " << i << " -WE " << i << '\n';
 }
-
-

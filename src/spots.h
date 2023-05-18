@@ -9,6 +9,7 @@
 #include <vector>
 #include <algorithm>
 #include <iostream>
+#include <map>
 #include "tools.h"
 #include "global_status.h"
 
@@ -18,6 +19,8 @@ using std::vector;
 using std::cerr;
 using std::ostream;
 using std::cout;
+
+GlobalStatus global_status;
 
 class Status {
 
@@ -100,6 +103,7 @@ public:
     const double NS, WE; //经纬度
     Comments comments; // 评论区（并非某一条评论），包装有 : unordered_map
 
+
 public:
 
     Spot();
@@ -110,7 +114,7 @@ public:
     Spot(const string &spotNameA, const int &sidA,
          const double &t, const double &v, const double &h, const double &c, const double &d,
          const PROVINCE &provinceA, const string &cityA,
-         const double & NSA, const double & WEA);
+         const double & NSA, const double & WEA, const string &img);
 
     Spot(const Spot &s);
 
@@ -137,8 +141,8 @@ public:
     unordered_map<unsigned , Spot*> spots;//sid - spots
     unordered_map<string, vector<Spot*> > province_spots;
     unordered_map<string, Spot*> name_spots;
+    int spot_num = 0;
 
-//    GlobalStatus global_status;
 public:
 
     SpotManager();
@@ -148,7 +152,7 @@ public:
     bool addSpot(const string &spotNameA, const int &sidA,
                  const double &t, const double &v, const double &h, const double &c, const double &d,
                  const PROVINCE &provinceA, const string &cityA,
-                 const double & NSA, const double & WEA);
+                 const double & NSA, const double & WEA, const string &img);
 
     bool addSpot(const Spot &spot);
 
@@ -157,6 +161,8 @@ public:
     bool putComment(const unsigned &s, const unsigned &u, const unsigned &c, const string &data);
 
     bool putCommentLike(const unsigned &s, const unsigned &u, const unsigned &c);
+
+    string fuzzyReco(const int &a, const int &b, const int &c, const int &d, const int &e);
 
 
 };

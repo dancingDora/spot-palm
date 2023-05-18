@@ -398,15 +398,19 @@ public:
         return *this;
     }
 
-    int highest() {
+    int highestPos() {
         if (!head) return -1;
         Point *ptr = head;
+        int position = head->pos;
         int weight = head->weight;
         while (ptr->nxt) {
-            if (ptr->weight > weight) weight = ptr->weight;
+            if (ptr->weight > weight) {
+                weight = ptr->weight;
+                position = ptr->pos;
+            }
             ptr = ptr->nxt;
         }
-        return weight;
+        return position;
     }
 
 private:
@@ -474,4 +478,7 @@ private:
 };
 
 unsigned s_to_u(string num);
+
+int score(int target, int parameter);
+
 #endif //旅游景点模糊推荐_TOOLS_H

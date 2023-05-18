@@ -6,6 +6,48 @@
 #define SPOT_PALM_CONST_VALUE_H
 #define ROOT_PASSWORD root_password
 const double EARTH_RADIUS = 6371.0;
+const std::string Province_str[] = {
+        "Beijing",
+        "Tianjin",
+        "Shanghai",
+        "Chongqing",
+        // 直辖市 4
+        "Guangxi",
+        "Neimenggu",
+        "Ningxia",
+        "Xizang",
+        "Xinjiang",
+        //自治区 5
+         "Anhui",
+        "Fujian",
+        "Gansu",
+        "Guangdong",
+        "Guizhou",
+        //A-G 5
+        "Hainan",
+        "Hebei",
+        "Henan",
+        "Heilongjiang",
+        "Hubei",
+        "Hunan",
+        "Jilin",
+        "Jiangsu",
+        "Jiangxi",
+        //H-J 9
+        "Liaoning",
+        "Qinghai",
+        "Shandong",
+        "Shanxi",
+        "Shaanxi",
+        "Sichuan",
+        "Taiwan",
+        "Yunnan",
+        "Zhejiang",
+        //L-Z 9
+        "Xianggang",
+        "Aomen"
+};
+
 enum PROVINCE {//省级行政区 34
     Beijing,Tianjin,Shanghai,Chongqing, // 直辖市 4
     Guangxi,Neimenggu,Ningxia,Xizang,Xinjiang,//自治区 5

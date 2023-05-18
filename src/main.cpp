@@ -15,6 +15,11 @@ int main() {
 //    freopen("case_test_res.txt", "w", stdout);
     string commandLine, result;
     cout << "open spot-palm success.\n";
+    ifstream spot_in("database.spot");
+    while(std::getline(spot_in, commandLine)) {
+        result = spot_palm.run(commandLine);
+    }
+    cout << "get spot\n";
     spot_palm.runAsBackEnd();
 //    while(std::getline(cin , commandLine)) {
 //        result = spot_palm.run(commandLine);

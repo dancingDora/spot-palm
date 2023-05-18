@@ -144,8 +144,9 @@ bool help() {
     cout << "\033[36m   login -i <uid(unsigned)> -p <password(string)>\033[0m" << std::endl;
     cout << "\033[36m   logout -i <uid(unsigned)>\033[0m" << std::endl;
     cout << "\033[36m   query_profile -i <uid(unsigned)> -q <queryUID(unsigned)>\033[0m" << std::endl;
-    cout << "\033[36m   modify_profile -i <uid(unsigned)> (-g) <gender(int)> (-m) <mail_address(string)> (-n_ <name(string)>\033[0m"
-         << std::endl;
+    cout
+            << "\033[36m   modify_profile -i <uid(unsigned)> (-g) <gender(int)> (-m) <mail_address(string)> (-n_ <name(string)>\033[0m"
+            << std::endl;
     cout << "\033[36m   add_spot -n [spot name] -i [sid] -t [status temperature] -v [status visitorAmount]\033[0m"
          << std::endl;
     cout << "\033[33m            -h [status humidity] -c [status consumption] -d [status distance]\033[0m" << std::endl;
@@ -162,17 +163,27 @@ uint32_t hashUS(const unsigned &u, const unsigned &s) {
     uint32_t res = (u << 16) | (s & 0x0000ffffl);
     return res;
 }
+
 unsigned s_to_u(string num) {
     int res = 0;
-    for(int i = 0; i < num.size(); i++) {
-        if(num[i] < '0' || num[i] > '9') {
+    for (int i = 0; i < num.size(); i++) {
+        if (num[i] < '0' || num[i] > '9') {
             cerr << "wrong number input.\n";
             return 0;
-        }
-        else {
+        } else {
             res *= 10;
             res += num[i] - '0';
         }
     }
     return res;
+}
+
+int score(int target, int parameter) {
+    if (!target) return 0;
+    if (parameter >= 1 && parameter <= 5 && target >= 1 && target <= 5) {
+        int ans = 20 - 5 * abs(parameter - target);
+        if(ans == 0) return -10;
+        return ans;
+    }
+    return 0;
 }
