@@ -20,7 +20,7 @@ using std::cerr;
 using std::ostream;
 using std::cout;
 
-GlobalStatus global_status;
+//GlobalStatus global_status;
 
 class Status {
 
@@ -142,6 +142,8 @@ public:
     unordered_map<string, vector<Spot*> > province_spots;
     unordered_map<string, Spot*> name_spots;
     int spot_num = 0;
+
+    GlobalStatus global_status;
 
 public:
 

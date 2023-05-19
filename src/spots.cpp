@@ -110,13 +110,13 @@ Spot::Spot(const string &spotNameA, const int &sidA,
     status.humidity = h;
     status.visitorAmount = v;
 
-    {//for test
-        status._temperature = global_status.setLevel(Temperature, t);
-        status._distance = global_status.setLevel(Distance, d);
-        status._consumption =  global_status.setLevel(Consumption, c);
-        status._humidity =  global_status.setLevel(Humidity, h);
-        status._visitorAmount =  global_status.setLevel(VisitorAmount, v);
-    }
+//    {//for test
+//        status._temperature = global_status.setLevel(Temperature, t);
+//        status._distance = global_status.setLevel(Distance, d);
+//        status._consumption =  global_status.setLevel(Consumption, c);
+//        status._humidity =  global_status.setLevel(Humidity, h);
+//        status._visitorAmount =  global_status.setLevel(VisitorAmount, v);
+//    }
     city = cityA;
 }
 
@@ -197,6 +197,11 @@ bool SpotManager::addSpot(const string &spotNameA, const int &sidA,
                              t, v, h, c, d,
                              provinceA, cityA,
                              NSA, WEA, img);
+    newSpot->status._temperature = global_status.setLevel(Temperature, t);
+    newSpot->status._distance = global_status.setLevel(Distance, d);
+    newSpot->status._consumption =  global_status.setLevel(Consumption, c);
+    newSpot->status._humidity =  global_status.setLevel(Humidity, h);
+    newSpot->status._visitorAmount =  global_status.setLevel(VisitorAmount, v);
     spots.insert(std::pair<int, Spot *>(sidA, newSpot));
     province_spots[provToS(newSpot->province)].push_back(newSpot);
     name_spots.insert(std::pair<string, Spot *>(spotNameA, newSpot));

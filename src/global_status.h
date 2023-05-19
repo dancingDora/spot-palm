@@ -26,7 +26,7 @@ private:
 
 public:
 
-    PreferenceInterval questionnaire();
+    bool questionnaire();
 
     GlobalStatus();
 

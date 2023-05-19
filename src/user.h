@@ -37,8 +37,6 @@ public:
     int gender;           //gender     :  male-1   ; female-2; others-0.
     Character character;
 
-    GlobalStatus userStatus;
-
     vector<unsigned> historyComments; // history written commentsMap;
 
     //Now it is a lists show followers and follows.
